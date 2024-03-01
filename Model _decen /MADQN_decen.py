@@ -201,11 +201,11 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             next_observations = next_observations.to(self.device)
             adj = self.adj.to(self.device)
 
-            q_values, _ = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0))
-            q_values = q_values[0][actions]
+            q_values = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0))
+            q_values = q_values[actions[0]]
 
 
-            next_q_values, _ = self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0))
+            next_q_values= self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0))
             next_q_values = torch.max(next_q_values)
 
             targets = int(rewards[0]) + (1 - int(termination[0])) * next_q_values * args.gamma
