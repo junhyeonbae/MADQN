@@ -1,5 +1,5 @@
 from magent2.environments import hetero_adversarial_v1
-from MADQN_decen import MADQN
+from MADQN_cen import MADQN
 from arguments import args
 import torch as th
 import wandb
@@ -147,15 +147,15 @@ def main():
 					env.step(action)
 					reward = env._cumulative_rewards[agent] # agent
 					# ss , reward, terter, trutru, ifif = env.last()
-					print('AFTER: ', agent, 'action',action, 's reward', reward)
+					#print('AFTER: ', agent, 'action',action, 's reward', reward)
 
 					# if rr > 0:
 					# 	print('after reward:', rr)
 					# elif rr < 0:
 					# 	print('after penalty:', rr)
 
-					if reward <= -0.5:
-						print('wtf')
+					# if reward <= -0.5:
+					# 	print('wtf')
 
 					observations_dict[idx].append(observation_temp) #s
 					action_dict[idx].append(action)					#a
@@ -197,8 +197,8 @@ def main():
 					# if last_reward <= -0.5:
 					# 	print('wtf')
 
-				if total_last_rewards <= -0.5:
-					print('wtf')
+				# if total_last_rewards <= -0.5:
+				# 	print('wtf')
 
 				ep_reward += total_last_rewards
 

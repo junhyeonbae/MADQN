@@ -1,4 +1,4 @@
-from model_decen import G_DQN, G_ReplayBuffer
+from model_cen import G_DQN, G_ReplayBuffer
 import numpy as np
 import random
 import torch
