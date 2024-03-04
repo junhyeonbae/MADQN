@@ -13,8 +13,8 @@ device = 'cpu'
 # wandb.init(project="MADQN", entity='hails',config=args.__dict__)
 # wandb.run.name = 'revision_gnn_8'
 
-#render_mode = 'rgb_array'
-render_mode = 'human'
+render_mode = 'rgb_array'
+#render_mode = 'human'
 #env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=-0.2,
 # max_cycles=args.max_update_steps, extra_features=False,render_mode=render_mode)
 
@@ -113,6 +113,23 @@ def main():
 
             step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 
+
+            if (((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0):
+
+                for idx in range(n_predator1 + n_predator2):
+                # madqn.set_agent_info(agent, pos, view_range)
+                    madqn.set_agent_buffer(idx)
+
+                    if idx < args.n_predator1:
+                        madqn.set_agent_shared(predator1_view_range)
+                    else:
+                        madqn.set_agent_shared(predator2_view_range)
+
+                    # self.to_guestbook(shared_info.to('cpu'))
+                    madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
+
+
+
             if agent[:8] == "predator":
 
                 handles = env.env.env.env.env.get_handles()
@@ -177,19 +194,20 @@ def main():
                     action = env.action_space(agent).sample()
                     env.step(action)
 
-            if (((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0):
 
-                for idx in range(n_predator1 + n_predator2):
-                # madqn.set_agent_info(agent, pos, view_range)
-                    madqn.set_agent_buffer(idx)
-
-                    if idx < args.n_predator1:
-                        madqn.set_agent_shared(predator1_view_range)
-                    else:
-                        madqn.set_agent_shared(predator2_view_range)
-
-                    # self.to_guestbook(shared_info.to('cpu'))
-                    madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
+            # if (((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0):
+            #
+            #     for idx in range(n_predator1 + n_predator2):
+            #     # madqn.set_agent_info(agent, pos, view_range)
+            #         madqn.set_agent_buffer(idx)
+            #
+            #         if idx < args.n_predator1:
+            #             madqn.set_agent_shared(predator1_view_range)
+            #         else:
+            #             madqn.set_agent_shared(predator2_view_range)
+            #
+            #         # self.to_guestbook(shared_info.to('cpu'))
+            #         madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
 
 
 
