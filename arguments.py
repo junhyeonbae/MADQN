@@ -28,6 +28,7 @@ parser.add_argument('--n_predator2',type=int, default=3)
 parser.add_argument('--n_prey',type=int, default=12)
 parser.add_argument('--tag_reward',type=float, default= 3)
 parser.add_argument('--tag_penalty',type=float, default= -1)
+parser.add_argument('--move_penalty',type=float, default = -0.3)
 
 parser.add_argument('--seed',type=int, default=874)
 

@@ -79,6 +79,10 @@ def main():
         for agent_idx in range(n_predator1 + n_predator2):
             reward_dict[agent_idx] = []
 
+        move_penalty_dict = {}
+        for agent_idx in range(n_predator1 + n_predator2):
+            move_penalty_dict[agent_idx] = []
+
         action_dict = {}
         for agent_idx in range(n_predator1 + n_predator2):
             action_dict[agent_idx] = []
@@ -161,10 +165,15 @@ def main():
                     continue
 
                 else:
-                    action, book ,shared_info = madqn.get_action(state=observation_temp, mask=None) #book : shared book?? ??? action ?? ? ??? ?
-                                                                                     #action ? ??? shared graph? ??->observation ? ?? ?? ????
-                                                                                    #shared_info : ??? ??
+                    action, book ,shared_info = madqn.get_action(state=observation_temp, mask=None)
                     env.step(action)
+
+                    #여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
+                    if action <= 4:
+                        move_penalty_dict[idx].append(args.move_penalty)
+                    else:
+                        move_penalty_dict[idx].append(0)
+
                     reward = env._cumulative_rewards[agent] # agent
 
 
@@ -216,8 +225,14 @@ def main():
 
 
                 total_last_rewards = 0
+                total_move_penalty = 0
                 for agent_rewards in reward_dict.values():
                     total_last_rewards += np.sum(agent_rewards[-1])
+
+                for penalty in move_penalty_dict.values():
+                    total_move_penalty += np.sum(penalty[-2])
+
+                total_last_rewards = total_last_rewards + total_move_penalty
 
                 ep_reward += total_last_rewards
 
