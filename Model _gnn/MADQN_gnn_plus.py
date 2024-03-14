@@ -1,4 +1,4 @@
-from model_gnn import G_DQN, ReplayBuffer
+from model_gnn_plus import G_DQN, ReplayBuffer
 import numpy as np
 import random
 import torch
@@ -308,7 +308,7 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             adj = self.adj.to(self.device)
 
             q_values, _ = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0), book[0].detach().to(self.device))
-            q_values = q_values[0][actions]
+            q_values = q_values[actions]
 
 
             next_q_values, _ = self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0), book_next[0].detach().to(self.device))

@@ -24,6 +24,11 @@ class G_DQN(nn.Module):
         self.gnn2 = DenseSAGEConv(128, self.dim_feature*2)
         self.sig = nn.Sigmoid() #sigmoid ? ??? ?? ??..
 
+        #info
+        self.dim_info = observation_state[2]
+        self.gnn1_info = DenseSAGEConv(self.dim_feature,  128)
+        self.gnn2_info = DenseSAGEConv(128, self.dim_feature)
+
         #DQN
         self.dim_input = observation_state[0] * observation_state[1] * observation_state[2]*2
         self.FC1 = nn.Linear(self.dim_input, 128)
@@ -48,7 +53,7 @@ class G_DQN(nn.Module):
         x_pre = x.reshape(-1, self.dim_feature)
 
         x = self.gnn1(x_pre, adj)
-        x = self.tanh(x)
+        x = self.tanh(x[0])
         x = self.gnn2(x, adj).squeeze()
         x = self.tanh(x)
 
@@ -60,10 +65,15 @@ class G_DQN(nn.Module):
         shared = shared.reshape(self.observation_state)
         #dqn = dqn.reshape(self.observation_state)
 
+        info_pre = info.reshape(-1, self.dim_feature)
+        x1 = self.gnn1_info(info_pre,adj)
+        x1 = self.tanh(x1)
+        x1 = self.gnn2_info(x1[0], adj).squeeze()
+        x1 = self.tanh(x1)
+        x1 = x1.reshape(self.observation_state)
 
-        x = torch.cat((shared, info), dim=0).reshape(-1, self.dim_input)
 
-
+        x = torch.cat((shared, x1), dim=0).reshape(-1, self.dim_input).squeeze()
 
         x = self.FC1(x)
         x = self.tanh(x)
