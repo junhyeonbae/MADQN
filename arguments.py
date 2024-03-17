@@ -9,8 +9,9 @@ parser.add_argument('--eps', type=float, default=1)
 parser.add_argument('--eps_decay', type=float, default=0.9999)
 parser.add_argument('--eps_min', type=float, default=0.01)
 parser.add_argument('--max_update_steps', type=int, default=100)
-parser.add_argument('--total_ep', type=int, default=10000)
-parser.add_argument('--book_decay',type=int, default=0.5)
+parser.add_argument('--total_ep', type=int, default=2000)
+parser.add_argument('--book_decay',type=int, default=0.1)
+parser.add_argument("--book_term", type=int, default=4)
 parser.add_argument('--ep_save',type=int, default = 100)
 
 
@@ -27,8 +28,8 @@ parser.add_argument('--n_predator1',type=int, default=3)
 parser.add_argument('--n_predator2',type=int, default=3)
 parser.add_argument('--n_prey',type=int, default=12)
 parser.add_argument('--tag_reward',type=float, default= 3)
-parser.add_argument('--tag_penalty',type=float, default= -1)
-parser.add_argument('--move_penalty',type=float, default = -0.3)
+parser.add_argument('--tag_penalty',type=float, default= -0.2)
+parser.add_argument('--move_penalty',type=float, default = -0.15)
 
 parser.add_argument('--seed',type=int, default=874)
 

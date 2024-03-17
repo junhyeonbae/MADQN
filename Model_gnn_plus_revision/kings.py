@@ -82,7 +82,6 @@ def king_adj2(n) :
 
 
 
-for step in range(4,0,-1):
-    print(step)
 
-print(2**3)
+for a in range(4, 0, -1):
+    print(a)

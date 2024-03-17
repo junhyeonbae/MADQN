@@ -11,7 +11,7 @@ seed = 2000
 device = 'cpu'
 
 # wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-# wandb.run.name = 'mac_8'
+# wandb.run.name = 'cen_move_penalty_1'
 
 
 render_mode = 'rgb_array'
@@ -91,6 +91,10 @@ def main():
 		for agent_idx in range(n_predator1 + n_predator2):
 			reward_dict[agent_idx] = []
 
+		move_penalty_dict = {}
+		for agent_idx in range(n_predator1 + n_predator2):
+			move_penalty_dict[agent_idx] = []
+
 		action_dict = {}
 		for agent_idx in range(n_predator1 + n_predator2):
 			action_dict[agent_idx] = []
@@ -117,9 +121,7 @@ def main():
 			if agent[:8] == "predator":
 
 				if agent[9] == "1":
-
 					idx = int(agent[11:])
-
 
 				else:
 					idx = int(agent[11:]) + n_predator1
@@ -146,16 +148,14 @@ def main():
 					action = madqn.get_action(state=observation_temp, mask=None)
 					env.step(action)
 					reward = env._cumulative_rewards[agent] # agent
-					# ss , reward, terter, trutru, ifif = env.last()
-					#print('AFTER: ', agent, 'action',action, 's reward', reward)
 
-					# if rr > 0:
-					# 	print('after reward:', rr)
-					# elif rr < 0:
-					# 	print('after penalty:', rr)
 
-					# if reward <= -0.5:
-					# 	print('wtf')
+					# 여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
+					if action <= 4:
+						move_penalty_dict[idx].append(args.move_penalty)
+					else:
+						move_penalty_dict[idx].append(0)
+
 
 					observations_dict[idx].append(observation_temp) #s
 					action_dict[idx].append(action)					#a
@@ -181,29 +181,25 @@ def main():
 					action = env.action_space(agent).sample()
 					env.step(action)
 
-			# 이렇게 하는 이유는 팀 전체의 reward를 put 하기 위해서인데..
-			# 한 step 이 끝날때마다 첫번째 agent 에 대해서 딱 한번!
-			# 굳이 이렇게 if문을 또 돌릴 필요가 있나?
+
 
 			if ((((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-					and step_idx > 1):  # 세번째 step 이후, 각 에이전트의 iteraiton이 끝난 직후
+					and step_idx > 0):
 
 				total_last_rewards = 0
+				total_move_penalty = 0
 				for agent_rewards in reward_dict.values():
 					total_last_rewards += np.sum(agent_rewards[-1])
-					# last_reward = agent_rewards[-2] - agent_rewards[-3]
-					# total_last_rewards += last_reward
-					#
-					# if last_reward <= -0.5:
-					# 	print('wtf')
 
-				# if total_last_rewards <= -0.5:
-				# 	print('wtf')
+				for penalty in move_penalty_dict.values():
+					total_move_penalty += np.sum(penalty[-2])
+
+				total_last_rewards = total_last_rewards + total_move_penalty
 
 				ep_reward += total_last_rewards
 
 
-				#이렇게 put 하는게 맞나?
+				#버퍼에 put
 				for idx in range(args.n_predator1 + args.n_predator2):
 
 					# madqn.set_agent_info(agent, pos, view_range)
@@ -217,6 +213,7 @@ def main():
 									 termination_dict[idx][-2],
 									 truncation_dict[idx][-2])
 
+					# wandb.log({"action_{}".format(idx): action_dict[idx][-2]})
 
 				print('ep:{}'.format(ep))
 				print("predator total_reward", total_last_rewards)
