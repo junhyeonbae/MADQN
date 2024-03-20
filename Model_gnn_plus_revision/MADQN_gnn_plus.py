@@ -220,9 +220,6 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
         self.shared[x_start - (x_range-1) :x_start + (x_range+1), y_start - (y_range - 1): y_start + (y_range+1), :] += info
 
-        shared = self.shared[x_start - (x_range - 1):x_start + (x_range + 1), y_start - (y_range - 1): y_start + (y_range + 1), :]
-        self.shared[x_start - (x_range - 1):x_start + (x_range + 1), y_start - (y_range - 1): y_start + (y_range + 1),:] = (shared - shared.min())
-
 
     def shared_decay(self):
         self.shared = self.shared * args.book_decay

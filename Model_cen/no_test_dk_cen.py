@@ -15,7 +15,7 @@ device = 'cpu'
 
 
 render_mode = 'rgb_array'
-#render_mode = "human"
+# render_mode = "human"
 
 entire_state = (args.map_size,args.map_size,3)
 dim_act = 13
@@ -23,10 +23,6 @@ n_predator1 = args.n_predator1
 n_predator2 = args.n_predator1
 n_prey = args.n_prey
 
-#target_update_point 필요한 이유?
-#iteration_number는 하나의 에이전트에 해당하는 for문이 돌아갈 때 +1 되는데,
-#target 을 max_update_steps 에 맞춰서 업데이트 하기 위해서 필요하다.
-target_update_point = (1+args.max_update_steps)*(args.n_predator1+args.n_predator2+args.n_prey)
 
 
 madqn = MADQN(n_predator1, n_predator2, dim_act ,entire_state, device, buffer_size=args.buffer_size)
@@ -114,77 +110,9 @@ def main():
 			step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 			# print(agent[:8]=='predator')
 
-			_, reward, termination, truncation, info = env.last()
-			observation = env.state()
-			observation_temp = process_array(observation)
 
-			if agent[:8] == "predator":
-
-				if agent[9] == "1":
-					idx = int(agent[11:])
-
-				else:
-					idx = int(agent[11:]) + n_predator1
-
-
-				madqn.set_agent_info(agent)
-
-
-
-
-				# print('BEFORE: ', agent, 's reward', reward)
-				# print("agent:", agent)
-				# if reward > 0:
-				# 	print('before reward:', reward)
-				# elif reward < 0:
-				# 	print('before penalty:', reward)
-
-				if termination or truncation:
-					print(agent , 'is terminated')
-					env.step(None)
-					continue
-
-				else:
-					action = madqn.get_action(state=observation_temp, mask=None)
-					env.step(action)
-					reward = env._cumulative_rewards[agent] # agent
-
-
-					# 여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
-					if action <= 4:
-						move_penalty_dict[idx].append(args.move_penalty)
-					else:
-						move_penalty_dict[idx].append(0)
-
-
-					observations_dict[idx].append(observation_temp) #s
-					action_dict[idx].append(action)					#a
-					reward_dict[idx].append(reward)					#r
-					termination_dict[idx].append(termination)		#t_{t-1]
-					truncation_dict[idx].append(truncation)			#t_{t-1]
-
-					if madqn.buffer.size() >= args.trainstart_buffersize:
-
-						madqn.replay()
-
-			else : #prey 일때
-				_, _, termination, truncation, _ = env.last()
-
-				if termination or truncation:
-					print(agent, 'is terminated')
-					env.step(None)
-
-					continue
-
-
-				else:
-					action = env.action_space(agent).sample()
-					env.step(action)
-
-
-
-			if ((((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-					and step_idx > 0):
+			if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
+					and step_idx > 1):
 
 				total_last_rewards = 0
 				total_move_penalty = 0
@@ -221,6 +149,62 @@ def main():
 
 				# if madqn.buffer.size() >= args.trainstart_buffersize:
 				# 	wandb.log({"total_last_rewards": total_last_rewards })
+
+
+			_, reward, termination, truncation, info = env.last()
+			observation = env.state()
+			observation_temp = process_array(observation)
+
+			if agent[:8] == "predator":
+
+				if agent[9] == "1":
+					idx = int(agent[11:])
+
+				else:
+					idx = int(agent[11:]) + n_predator1
+
+				madqn.set_agent_info(agent)
+
+				if termination or truncation:
+					print(agent , 'is terminated')
+					env.step(None)
+					continue
+
+				else:
+					action = madqn.get_action(state=observation_temp, mask=None)
+					env.step(action)
+					reward = env._cumulative_rewards[agent] # agent
+
+					# 여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
+					if action <= 4:
+						move_penalty_dict[idx].append(args.move_penalty)
+					else:
+						move_penalty_dict[idx].append(0)
+
+
+					observations_dict[idx].append(observation_temp) #s
+					action_dict[idx].append(action)					#a
+					reward_dict[idx].append(reward)					#r
+					termination_dict[idx].append(termination)		#t_{t-1]
+					truncation_dict[idx].append(truncation)			#t_{t-1]
+
+					if madqn.buffer.size() >= args.trainstart_buffersize:
+
+						madqn.replay()
+
+			else : #prey 일때
+				_, _, termination, truncation, _ = env.last()
+
+				if termination or truncation:
+					print(agent, 'is terminated')
+					env.step(None)
+
+					continue
+
+
+				else:
+					action = env.action_space(agent).sample()
+					env.step(action)
 
 
 			iteration_number += 1
