@@ -44,6 +44,7 @@ class G_DQN(nn.Module):
         except:
             pass
 
+
         if isinstance(x, np.ndarray):
             x = torch.tensor(x).float()
         else:

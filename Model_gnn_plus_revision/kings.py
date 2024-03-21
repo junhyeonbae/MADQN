@@ -81,7 +81,3 @@ def king_adj2(n) :
     return A
 
 
-
-
-for a in range(4, 0, -1):
-    print(a)

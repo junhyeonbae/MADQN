@@ -60,6 +60,12 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             self.gdqn_targets[i].load_state_dict(weights)
 
 
+    def set_agent_model(self,agent):
+        self.gdqn = self.gdqns[agent]
+        self.gdqn_target = self.gdqn_targets[agent]
+
+
+
     def set_agent_info(self, agent):
 
         if agent[9] == "1":

@@ -119,7 +119,7 @@ def main():
 
 
 
-            #?? ??? ??? ?? ????? action ? ??? ?? ?? guestbook? ??? ????.
+            #guestbook 에 넣기
             if (((iteration_number + 1) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0):
 
                 for idx in range(n_predator1 + n_predator2):
@@ -134,7 +134,7 @@ def main():
                     # self.to_guestbook(shared_info.to('cpu'))
                     madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
 
-                #??? ??? ?, ?? ??? get action ?? ?? ?? ?? decaying ? ???.
+
                 madqn.shared_decay()
 
 

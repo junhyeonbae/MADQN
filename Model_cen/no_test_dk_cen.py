@@ -11,7 +11,7 @@ seed = 2000
 device = 'cpu'
 
 # wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-# wandb.run.name = 'cen_move_penalty_1'
+# wandb.run.name = 'cen_move_penalty_6'
 
 
 render_mode = 'rgb_array'
@@ -31,10 +31,10 @@ madqn = MADQN(n_predator1, n_predator2, dim_act ,entire_state, device, buffer_si
 
 		# model_file_name = f'./model_cen_save/model_{i}_ep50.pt'
 		#
-		# # 모델 상태 사전 로드
+		# # ?? ?? ?? ??
 		# model_state_dict = th.load(model_file_name)
 		#
-		# # 모델 상태 사전을 현재 모델에 적용
+		# # ?? ?? ??? ?? ??? ??
 		# madqn.gdqns[i].load_state_dict(model_state_dict)
 
 def process_array(arr):
@@ -69,7 +69,7 @@ def main():
 
 	for ep in range(args.total_ep):
 
-		iteration_number = 0  #ep가 새로 시작될때마다 0 으로 초기화
+		iteration_number = 0  #ep? ?? ?????? 0 ?? ???
 		ep_reward = 0
 
 		env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=args.tag_penalty,
@@ -104,7 +104,7 @@ def main():
 			truncation_dict[agent_idx] = []
 
 
-		# 'max_update_steps' 끝나면 나오게 되는 반목문이다.
+		# 'max_update_steps' ??? ??? ?? ?????.
 		for agent in env.agent_iter():
 
 			step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
@@ -127,7 +127,7 @@ def main():
 				ep_reward += total_last_rewards
 
 
-				#버퍼에 put
+				#??? put
 				for idx in range(args.n_predator1 + args.n_predator2):
 
 					# madqn.set_agent_info(agent, pos, view_range)
@@ -175,8 +175,8 @@ def main():
 					env.step(action)
 					reward = env._cumulative_rewards[agent] # agent
 
-					# 여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
-					if action <= 4:
+					# ??? 0,1,2,3,4(????) ? ??? reward ? ??? ???? ??.
+					if action in [0, 1, 3, 4]:
 						move_penalty_dict[idx].append(args.move_penalty)
 					else:
 						move_penalty_dict[idx].append(0)
@@ -192,7 +192,7 @@ def main():
 
 						madqn.replay()
 
-			else : #prey 일때
+			else : #prey ??
 				_, _, termination, truncation, _ = env.last()
 
 				if termination or truncation:
@@ -230,10 +230,10 @@ def main():
 			break
 
 		# if madqn.buffer.size() >= args.trainstart_buffersize:
-		# ep가 100의 개수일 때마다 target update 한다.
+		# ep? 100? ??? ??? target update ??.
 		if madqn.buffer.size() >= args.trainstart_buffersize:
 			for agent in range(args.n_predator1 + args.n_predator2):
-				madqn.set_agent_buffer(agent)
+				madqn.set_agent_model(agent)
 				madqn.target_update()
 
 		# if ((ep % 50) ==0) and ep >1 :

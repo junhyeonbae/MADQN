@@ -11,7 +11,7 @@ from arguments import args
 device = 'cpu'
 
 # wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-# wandb.run.name = 'correct main_4'
+# wandb.run.name = 'main_len=3,decay=0.1'
 
 render_mode = 'rgb_array'
 #render_mode = 'human'
@@ -124,14 +124,13 @@ def main():
 
 
             #book process
-            #모든 스텝이 끝나고 다시 돌아왔을때 action 을 취하기 전에 미리 guestbook에 정보를 넣어준다.
             if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0):
 
-                #book_term 까지는 계속 넣고!
+
                 if step_idx <= args.book_term:
 
                     for idx in range(n_predator1 + n_predator2):
-                        #여기 수정해야함
+
                         madqn.set_agent_pos(agent_pos[idx][-1])
 
                         if idx < args.n_predator1:
@@ -142,8 +141,7 @@ def main():
                         # self.to_guestbook(shared_info.to('cpu'))
                         madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
 
-                else: # 그 이후로는 하나 빼고 다시 넣고 해야함
-                    #book_term 이전 step 빼주고
+                else:
                     for idx in range(n_predator1 + n_predator2):
 
                         madqn.set_agent_pos(agent_pos[idx][-(args.book_term+1)])
@@ -156,7 +154,7 @@ def main():
                         # self.to_guestbook(shared_info.to('cpu'))
                         madqn.to_guestbook(-(args.book_decay**(args.book_term))*shared_info_dict[idx][-(args.book_term+1)].to('cpu'))
 
-                    #현재 book 넣어주고
+                    #?? book ????
                     for idx in range(n_predator1 + n_predator2):
 
                         madqn.set_agent_pos(agent_pos[idx][-1])
@@ -169,7 +167,7 @@ def main():
                         madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
 
 
-            # 모든 스텝이 끝났을 때(단, 두번째 스텝까지 마친 뒤), 1번 에이전트가 스텝을 밟고 reward를 받기 전에 reward 계산을 해주고 put을 해주어야 한다.
+            # ?? ??? ??? ?(?, ??? ???? ?? ?), 1? ????? ??? ?? reward? ?? ?? reward ??? ??? put? ???? ??.
             if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
                     and step_idx > 1):
 
@@ -251,8 +249,8 @@ def main():
                     action, book ,shared_info = madqn.get_action(state=observation_temp, mask=None)
                     env.step(action)
 
-                    #여기서 0,1,2,3,4(움직이면) 가 나오면 reward 에 삭감을 해주어야 한다.
-                    if action <= 4:
+                    # penalty for moving
+                    if action in [0, 1, 3, 4]:
                         move_penalty_dict[idx].append(args.move_penalty)
                     else:
                         move_penalty_dict[idx].append(0)
@@ -268,8 +266,6 @@ def main():
                     termination_dict[idx].append(termination)
                     truncation_dict[idx].append(truncation)
                     agent_pos[idx].append(pos)
-
-
 
 
                 if madqn.buffer.size() >= args.trainstart_buffersize:
@@ -306,14 +302,12 @@ def main():
             print(iteration_number)
             break
 
-        # if madqn.buffer.size() >= args.trainstart_buffersize:
-        #     for agent in range(args.n_predator1 + args.n_predator2):
-        #         madqn.set_agent_buffer(agent)
-        #         madqn.target_update()
+
 
         if (madqn.buffer.size() >= args.trainstart_buffersize) and (ep % args.target_update == 0):
             for agent in range(args.n_predator1 + args.n_predator2):
-                madqn.set_agent_buffer(agent)
+
+                madqn.set_agent_model(agent)
                 madqn.target_update()
 
 

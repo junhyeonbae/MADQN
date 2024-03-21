@@ -149,6 +149,10 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         weights = self.gdqn.state_dict()
         self.gdqn_target.load_state_dict(weights)
 
+    def set_agent_model(self,agent):
+        self.gdqn = self.gdqns[agent]
+        self.gdqn_target = self.gdqn_targets[agent]
+
 
     def set_agent_info(self, agent, pos, view_range):
 
@@ -221,6 +225,8 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         self.shared[x_start - (x_range-1) :x_start + (x_range+1), y_start - (y_range - 1): y_start + (y_range+1), :] += info
 
 
+
+
     def shared_decay(self):
         self.shared = self.shared * args.book_decay
 
@@ -243,51 +249,13 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             print('random')
             # return random.randint(0, self.dim_act - 1), book
             return random.randint(0, dim_act-1), book,shared_info
-        return torch.argmax(q_value).item() , book , shared_info
-
+        return torch.argmax(q_value).item(), book, shared_info
 
         try:
             torch.cuda.empty_cache()
         except:
             pass
 
-
-
-    # def replay(self):
-    #     for _ in range(args.replay_times):
-    #         self.gdqn_optimizer.zero_grad()
-    #
-    #         observations, book, actions, rewards, next_observations, book_next, termination, truncation = self.buffer.sample()
-    #
-    #         next_observations = torch.tensor(next_observations)
-    #         observations = torch.tensor(observations)
-    #
-    #         next_observations = next_observations.reshape(-1,self.shared_shape[2])
-    #         observations = observations.reshape(-1,self.shared_shape[2])
-    #
-    #         # to device
-    #         observations = observations.to(self.device)
-    #         next_observations = next_observations.to(self.device)
-    #         adj = self.adj.to(self.device)
-    #
-    #         q_values, _ = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0), book[0].detach().to(self.device))
-    #         q_values = q_values[0][actions]
-    #
-    #
-    #         next_q_values, _ = self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0), book_next[0].detach().to(self.device))
-    #         next_q_values = torch.max(next_q_values)
-    #
-    #         targets = int(rewards[0]) + (1 - int(termination[0])) * next_q_values * args.gamma
-    #         loss = self.criterion(q_values, targets.detach())
-    #         loss.backward()
-    #
-    #         self.gdqn_optimizer.step()
-    #
-    #
-    #         try:
-    #             torch.cuda.empty_cache()
-    #         except:
-    #             pass
 
     def replay(self):
         for _ in range(args.replay_times):
