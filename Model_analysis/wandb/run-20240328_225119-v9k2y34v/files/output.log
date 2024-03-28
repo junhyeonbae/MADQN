@@ -1,0 +1,16 @@
+stop
+stop
+stop
+ep: 0 ********************************************************************************
+random
+random
+random
+random
+random
+random
+Backend MacOSX is interactive backend. Turning interactive mode on.
+Traceback (most recent call last):
+  File "/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis.py", line 405, in <module>
+    main()
+  File "/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis.py", line 188, in main
+    madqn.min_dist_into_deque_pred1(np.min(madqn.summation_team_dist[0]))

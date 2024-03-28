@@ -13,8 +13,8 @@ device = 'cpu'
 # wandb.init(project="MADQN", entity='hails',config=args.__dict__)
 # wandb.run.name = 'main_len=3,decay=0.1'
 
-render_mode = 'rgb_array'
-#render_mode = 'human'
+# render_mode = 'rgb_array'
+render_mode = 'human'
 #env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=-0.2,
 # max_cycles=args.max_update_steps, extra_features=False,render_mode=render_mode)
 
@@ -196,8 +196,6 @@ def main():
                                      book_dict[idx][-1],
                                      termination_dict[idx][-2],
                                      truncation_dict[idx][-2])
-
-                    # wandb.log({"action_{}".format(idx): action_dict[idx][-2]})
 
 
 

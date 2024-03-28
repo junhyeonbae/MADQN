@@ -1,0 +1,35 @@
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Current SDK version is 0.15.8
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Configure stats pid to 38912
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Loading settings from /Users/junhyeonbae/.config/wandb/settings
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Loading settings from /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/settings
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'Model_analysis/no_test_dk_analysis.py', 'program': '/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis.py'}
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_init.py:_log_setup():507] Logging user logs to /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_160309-pcktnnqq/logs/debug.log
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_init.py:_log_setup():508] Logging internal logs to /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_160309-pcktnnqq/logs/debug-internal.log
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_init.py:init():547] calling init triggers
+2024-03-28 16:03:09,732 INFO    MainThread:38912 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'gamma': 0.95, 'lr': 0.001, 'eps': 1, 'eps_decay': 0.9999, 'eps_min': 0.01, 'max_update_steps': 100, 'total_ep': 2000, 'book_decay': 0.1, 'book_term': 4, 'ep_save': 100, 'buffer_size': 10000, 'trainstart_buffersize': 5000, 'replay_times': 32, 'target_update': 1, 'map_size': 20, 'predator1_view_range': 6, 'predator2_view_range': 3, 'n_predator1': 6, 'n_predator2': 6, 'n_prey': 24, 'tag_reward': 3, 'tag_penalty': -0.2, 'move_penalty': -0.15, 'seed': 874}
+2024-03-28 16:03:09,733 INFO    MainThread:38912 [wandb_init.py:init():596] starting backend
+2024-03-28 16:03:09,733 INFO    MainThread:38912 [wandb_init.py:init():600] setting up manager
+2024-03-28 16:03:09,739 INFO    MainThread:38912 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-03-28 16:03:09,740 INFO    MainThread:38912 [wandb_init.py:init():606] backend started and connected
+2024-03-28 16:03:09,750 INFO    MainThread:38912 [wandb_init.py:init():697] updated telemetry
+2024-03-28 16:03:09,770 INFO    MainThread:38912 [wandb_init.py:init():730] communicating run to backend with 60.0 second timeout
+2024-03-28 16:03:10,054 WARNING MainThread:38912 [wandb_init.py:init():1169] interrupted
+Traceback (most recent call last):
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 1147, in init
+    run = wi.init()
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 733, in init
+    result = run_init_handle.wait(
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/threading.py", line 558, in wait
+    signaled = self._cond.wait(timeout)
+  File "/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/lib/python3.8/threading.py", line 306, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

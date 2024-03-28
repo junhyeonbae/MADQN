@@ -1,0 +1,200 @@
+2024-03-28 17:16:21,521 INFO    StreamThr :39879 [internal.py:wandb_internal():86] W&B internal server running at pid: 39879, started at: 2024-03-28 17:16:21.520577
+2024-03-28 17:16:21,522 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: status
+2024-03-28 17:16:21,529 INFO    WriterThread:39879 [datastore.py:open_for_write():85] open: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/run-yz2botu3.wandb
+2024-03-28 17:16:21,529 DEBUG   SenderThread:39879 [sender.py:send():379] send: header
+2024-03-28 17:16:21,549 DEBUG   SenderThread:39879 [sender.py:send():379] send: run
+2024-03-28 17:16:22,124 INFO    SenderThread:39879 [dir_watcher.py:__init__():211] watching files in: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files
+2024-03-28 17:16:22,124 INFO    SenderThread:39879 [sender.py:_start_run_threads():1121] run started: yz2botu3 with start time 1711613781.521288
+2024-03-28 17:16:22,124 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: summary_record
+2024-03-28 17:16:22,125 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-03-28 17:16:22,133 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: check_version
+2024-03-28 17:16:22,133 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: check_version
+2024-03-28 17:16:22,317 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: run_start
+2024-03-28 17:16:22,319 DEBUG   HandlerThread:39879 [system_info.py:__init__():31] System info init
+2024-03-28 17:16:22,319 DEBUG   HandlerThread:39879 [system_info.py:__init__():46] System info init done
+2024-03-28 17:16:22,319 INFO    HandlerThread:39879 [system_monitor.py:start():181] Starting system monitor
+2024-03-28 17:16:22,319 INFO    SystemMonitor:39879 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-03-28 17:16:22,319 INFO    HandlerThread:39879 [system_monitor.py:probe():201] Collecting system info
+2024-03-28 17:16:22,320 INFO    SystemMonitor:39879 [interfaces.py:start():190] Started cpu monitoring
+2024-03-28 17:16:22,320 INFO    SystemMonitor:39879 [interfaces.py:start():190] Started disk monitoring
+2024-03-28 17:16:22,320 DEBUG   HandlerThread:39879 [system_info.py:probe():195] Probing system
+2024-03-28 17:16:22,320 INFO    SystemMonitor:39879 [interfaces.py:start():190] Started gpuapple monitoring
+2024-03-28 17:16:22,325 INFO    SystemMonitor:39879 [interfaces.py:start():190] Started memory monitoring
+2024-03-28 17:16:22,327 INFO    SystemMonitor:39879 [interfaces.py:start():190] Started network monitoring
+2024-03-28 17:16:22,333 DEBUG   HandlerThread:39879 [system_info.py:_probe_git():180] Probing git
+2024-03-28 17:16:22,354 DEBUG   HandlerThread:39879 [system_info.py:_probe_git():188] Probing git done
+2024-03-28 17:16:22,355 DEBUG   HandlerThread:39879 [system_info.py:probe():240] Probing system done
+2024-03-28 17:16:22,355 DEBUG   HandlerThread:39879 [system_monitor.py:probe():210] {'os': 'macOS-13.3-arm64-arm-64bit', 'python': '3.8.18', 'heartbeatAt': '2024-03-28T08:16:22.320934', 'startedAt': '2024-03-28T08:16:21.508106', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/kings.py', 'codePath': 'Model_analysis/kings.py', 'git': {'remote': 'https://github.com/junhyeonbae/MADQN.git', 'commit': '1d39d9bb7e8af5b9d940c43b4286ce4d5a0299d5'}, 'email': 'bjhdo0807@gmail.com', 'root': '/Users/junhyeonbae/PycharmProjects/MADQN', 'host': 'Junui-MacBookPro.local', 'username': 'junhyeonbae', 'executable': '/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/bin/python', 'cpu_count': 10, 'cpu_count_logical': 10, 'disk': {'total': 460.4317207336426, 'used': 11.338787078857422}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2024-03-28 17:16:22,355 INFO    HandlerThread:39879 [system_monitor.py:probe():211] Finished collecting system info
+2024-03-28 17:16:22,355 INFO    HandlerThread:39879 [system_monitor.py:probe():214] Publishing system info
+2024-03-28 17:16:22,355 DEBUG   HandlerThread:39879 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2024-03-28 17:16:22,355 DEBUG   HandlerThread:39879 [system_info.py:_save_pip():67] Saving pip packages done
+2024-03-28 17:16:22,355 DEBUG   HandlerThread:39879 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2024-03-28 17:16:23,126 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/requirements.txt
+2024-03-28 17:16:23,127 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/conda-environment.yaml
+2024-03-28 17:16:23,127 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-summary.json
+2024-03-28 17:16:24,808 DEBUG   HandlerThread:39879 [system_info.py:_save_conda():86] Saving conda packages done
+2024-03-28 17:16:24,808 INFO    HandlerThread:39879 [system_monitor.py:probe():216] Finished publishing system info
+2024-03-28 17:16:24,816 DEBUG   SenderThread:39879 [sender.py:send():379] send: files
+2024-03-28 17:16:24,816 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2024-03-28 17:16:24,818 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: stop_status
+2024-03-28 17:16:24,818 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: stop_status
+2024-03-28 17:16:25,134 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/conda-environment.yaml
+2024-03-28 17:16:25,134 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-metadata.json
+2024-03-28 17:16:25,224 DEBUG   SenderThread:39879 [sender.py:send():379] send: telemetry
+2024-03-28 17:16:25,224 DEBUG   SenderThread:39879 [sender.py:send():379] send: telemetry
+2024-03-28 17:16:25,224 DEBUG   SenderThread:39879 [sender.py:send():379] send: run
+2024-03-28 17:16:25,459 INFO    SenderThread:39879 [sender.py:send_run():999] updated run: yz2botu3
+2024-03-28 17:16:25,707 INFO    wandb-upload_0:39879 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmpqnyloqmlwandb/bwdueicr-wandb-metadata.json
+2024-03-28 17:16:26,139 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/config.yaml
+2024-03-28 17:16:26,330 DEBUG   SenderThread:39879 [sender.py:send():379] send: files
+2024-03-28 17:16:26,330 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: partial_history
+2024-03-28 17:16:26,332 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png with policy now
+2024-03-28 17:16:26,335 DEBUG   SenderThread:39879 [sender.py:send():379] send: history
+2024-03-28 17:16:26,335 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: summary_record
+2024-03-28 17:16:26,337 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-03-28 17:16:26,337 DEBUG   SenderThread:39879 [sender.py:send():379] send: exit
+2024-03-28 17:16:26,337 INFO    SenderThread:39879 [sender.py:send_exit():584] handling exit code: 0
+2024-03-28 17:16:26,337 INFO    SenderThread:39879 [sender.py:send_exit():586] handling runtime: 4
+2024-03-28 17:16:26,338 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-03-28 17:16:26,338 INFO    SenderThread:39879 [sender.py:send_exit():592] send defer
+2024-03-28 17:16:26,338 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,339 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 0
+2024-03-28 17:16:26,339 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,339 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 0
+2024-03-28 17:16:26,339 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 1
+2024-03-28 17:16:26,340 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,341 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 1
+2024-03-28 17:16:26,341 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,341 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 1
+2024-03-28 17:16:26,341 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 2
+2024-03-28 17:16:26,341 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,341 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 2
+2024-03-28 17:16:26,341 INFO    HandlerThread:39879 [system_monitor.py:finish():190] Stopping system monitor
+2024-03-28 17:16:26,342 INFO    HandlerThread:39879 [interfaces.py:finish():202] Joined cpu monitor
+2024-03-28 17:16:26,342 DEBUG   SystemMonitor:39879 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-03-28 17:16:26,342 INFO    HandlerThread:39879 [interfaces.py:finish():202] Joined disk monitor
+2024-03-28 17:16:26,342 DEBUG   SystemMonitor:39879 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2024-03-28 17:16:26,343 INFO    HandlerThread:39879 [interfaces.py:finish():202] Joined gpuapple monitor
+2024-03-28 17:16:26,343 DEBUG   SystemMonitor:39879 [system_monitor.py:_start():170] Publishing last batch of metrics
+2024-03-28 17:16:26,343 INFO    HandlerThread:39879 [interfaces.py:finish():202] Joined memory monitor
+2024-03-28 17:16:26,343 INFO    HandlerThread:39879 [interfaces.py:finish():202] Joined network monitor
+2024-03-28 17:16:26,344 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,344 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 2
+2024-03-28 17:16:26,344 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 3
+2024-03-28 17:16:26,344 DEBUG   SenderThread:39879 [sender.py:send():379] send: telemetry
+2024-03-28 17:16:26,344 DEBUG   SenderThread:39879 [sender.py:send():379] send: stats
+2024-03-28 17:16:26,344 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,344 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 3
+2024-03-28 17:16:26,344 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,344 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 3
+2024-03-28 17:16:26,344 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 4
+2024-03-28 17:16:26,344 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,345 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 4
+2024-03-28 17:16:26,345 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,345 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 4
+2024-03-28 17:16:26,345 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 5
+2024-03-28 17:16:26,345 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,345 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 5
+2024-03-28 17:16:26,345 DEBUG   SenderThread:39879 [sender.py:send():379] send: summary
+2024-03-28 17:16:26,345 INFO    SenderThread:39879 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-03-28 17:16:26,345 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,346 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 5
+2024-03-28 17:16:26,346 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 6
+2024-03-28 17:16:26,346 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,346 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 6
+2024-03-28 17:16:26,346 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,346 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 6
+2024-03-28 17:16:26,348 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: status_report
+2024-03-28 17:16:26,638 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 7
+2024-03-28 17:16:26,638 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,638 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 7
+2024-03-28 17:16:26,639 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,639 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 7
+2024-03-28 17:16:26,639 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 8
+2024-03-28 17:16:26,639 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,639 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 8
+2024-03-28 17:16:26,639 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:26,639 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 8
+2024-03-28 17:16:26,639 INFO    SenderThread:39879 [job_builder.py:build():281] Attempting to build job artifact
+2024-03-28 17:16:26,640 INFO    SenderThread:39879 [job_builder.py:_get_source_type():400] is repo sourced job
+2024-03-28 17:16:26,641 INFO    SenderThread:39879 [job_builder.py:build():374] adding wandb-job metadata file
+2024-03-28 17:16:26,645 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 9
+2024-03-28 17:16:26,645 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:26,645 DEBUG   SenderThread:39879 [sender.py:send():379] send: artifact
+2024-03-28 17:16:26,645 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 9
+2024-03-28 17:16:27,146 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-summary.json
+2024-03-28 17:16:27,147 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/config.yaml
+2024-03-28 17:16:27,147 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png
+2024-03-28 17:16:27,148 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/media
+2024-03-28 17:16:27,148 INFO    Thread-12 :39879 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/media/images
+2024-03-28 17:16:27,249 INFO    wandb-upload_0:39879 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmpqnyloqmlwandb/7am11xse-media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png
+2024-03-28 17:16:27,337 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: poll_exit
+2024-03-28 17:16:28,165 INFO    wandb-upload_0:39879 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmpqnyloqmlwandb/it0aaiql-media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png
+2024-03-28 17:16:28,643 INFO    wandb-upload_1:39879 [upload_job.py:push():86] Skipped uploading /Users/junhyeonbae/Library/Application Support/wandb/artifacts/staging/tmp7o02jfj8
+2024-03-28 17:16:29,092 INFO    wandb-upload_2:39879 [upload_job.py:push():89] Uploaded file /Users/junhyeonbae/Library/Application Support/wandb/artifacts/staging/tmpixlaisb6
+2024-03-28 17:16:31,031 INFO    SenderThread:39879 [sender.py:send_artifact():1475] sent artifact job-https___github.com_junhyeonbae_MADQN.git_Model_analysis_kings.py - {'id': 'QXJ0aWZhY3Q6Nzc0MTQxOTE0', 'digest': 'd4708948c44221ba3573d269ef9e4008', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE1MzQ3MTkyOA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6Nzc0MTE3MTQz', 'versionIndex': 1}}, 'version': 'latest'}
+2024-03-28 17:16:31,031 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:31,031 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 9
+2024-03-28 17:16:31,031 INFO    SenderThread:39879 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-03-28 17:16:31,162 INFO    SenderThread:39879 [dir_watcher.py:finish():388] scan: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files
+2024-03-28 17:16:31,162 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/requirements.txt requirements.txt
+2024-03-28 17:16:31,162 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/config.yaml config.yaml
+2024-03-28 17:16:31,162 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-summary.json wandb-summary.json
+2024-03-28 17:16:31,164 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/conda-environment.yaml conda-environment.yaml
+2024-03-28 17:16:31,165 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-metadata.json wandb-metadata.json
+2024-03-28 17:16:31,167 INFO    SenderThread:39879 [dir_watcher.py:finish():402] scan save: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png media/images/XY_AB_Scatter_0_95bb74c831eb31fa1f2e.png
+2024-03-28 17:16:31,168 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 10
+2024-03-28 17:16:31,168 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: poll_exit
+2024-03-28 17:16:31,168 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:31,168 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 10
+2024-03-28 17:16:31,168 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:31,168 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 10
+2024-03-28 17:16:31,168 INFO    SenderThread:39879 [file_pusher.py:finish():159] shutting down file pusher
+2024-03-28 17:16:31,641 INFO    wandb-upload_2:39879 [upload_job.py:push():131] Uploaded file /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/config.yaml
+2024-03-28 17:16:31,780 INFO    wandb-upload_0:39879 [upload_job.py:push():131] Uploaded file /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/requirements.txt
+2024-03-28 17:16:31,832 INFO    wandb-upload_3:39879 [upload_job.py:push():131] Uploaded file /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/conda-environment.yaml
+2024-03-28 17:16:31,835 INFO    wandb-upload_1:39879 [upload_job.py:push():131] Uploaded file /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/files/wandb-summary.json
+2024-03-28 17:16:32,041 INFO    Thread-11 :39879 [sender.py:transition_state():612] send defer: 11
+2024-03-28 17:16:32,041 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:32,041 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 11
+2024-03-28 17:16:32,041 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:32,041 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 11
+2024-03-28 17:16:32,041 INFO    SenderThread:39879 [file_pusher.py:join():164] waiting for file pusher
+2024-03-28 17:16:32,041 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 12
+2024-03-28 17:16:32,041 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:32,041 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 12
+2024-03-28 17:16:32,041 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: status_report
+2024-03-28 17:16:32,042 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:32,042 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 12
+2024-03-28 17:16:32,042 INFO    SenderThread:39879 [file_stream.py:finish():593] file stream finish called
+2024-03-28 17:16:32,242 INFO    SenderThread:39879 [file_stream.py:finish():597] file stream finish is done
+2024-03-28 17:16:32,242 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 13
+2024-03-28 17:16:32,242 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:32,242 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 13
+2024-03-28 17:16:32,243 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:32,243 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 13
+2024-03-28 17:16:32,243 INFO    SenderThread:39879 [sender.py:transition_state():612] send defer: 14
+2024-03-28 17:16:32,243 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: defer
+2024-03-28 17:16:32,243 INFO    HandlerThread:39879 [handler.py:handle_request_defer():170] handle defer: 14
+2024-03-28 17:16:32,243 DEBUG   SenderThread:39879 [sender.py:send():379] send: final
+2024-03-28 17:16:32,243 DEBUG   SenderThread:39879 [sender.py:send():379] send: footer
+2024-03-28 17:16:32,243 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: defer
+2024-03-28 17:16:32,243 INFO    SenderThread:39879 [sender.py:send_request_defer():608] handle sender defer: 14
+2024-03-28 17:16:32,244 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: poll_exit
+2024-03-28 17:16:32,244 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: poll_exit
+2024-03-28 17:16:32,244 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: server_info
+2024-03-28 17:16:32,244 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: get_summary
+2024-03-28 17:16:32,245 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: sampled_history
+2024-03-28 17:16:32,246 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: job_info
+2024-03-28 17:16:32,246 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: server_info
+2024-03-28 17:16:32,671 DEBUG   SenderThread:39879 [sender.py:send_request():406] send_request: job_info
+2024-03-28 17:16:32,672 INFO    MainThread:39879 [wandb_run.py:_footer_history_summary_info():3481] rendering history
+2024-03-28 17:16:32,672 INFO    MainThread:39879 [wandb_run.py:_footer_history_summary_info():3513] rendering summary
+2024-03-28 17:16:32,672 INFO    MainThread:39879 [wandb_run.py:_footer_sync_info():3440] logging synced files
+2024-03-28 17:16:32,673 DEBUG   HandlerThread:39879 [handler.py:handle_request():144] handle_request: shutdown
+2024-03-28 17:16:32,673 INFO    HandlerThread:39879 [handler.py:finish():857] shutting down handler
+2024-03-28 17:16:33,253 INFO    WriterThread:39879 [datastore.py:close():294] close: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_171621-yz2botu3/run-yz2botu3.wandb
+2024-03-28 17:16:33,675 INFO    SenderThread:39879 [sender.py:finish():1552] shutting down sender
+2024-03-28 17:16:33,676 INFO    SenderThread:39879 [file_pusher.py:finish():159] shutting down file pusher
+2024-03-28 17:16:33,676 INFO    SenderThread:39879 [file_pusher.py:join():164] waiting for file pusher

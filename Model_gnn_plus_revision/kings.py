@@ -81,3 +81,12 @@ def king_adj2(n) :
     return A
 
 
+move_count_pred = {
+            0: 0,
+            1: 0
+        }
+
+move_count_pred[0]+=1
+move_count_pred[1]+=10
+
+print(move_count_pred)

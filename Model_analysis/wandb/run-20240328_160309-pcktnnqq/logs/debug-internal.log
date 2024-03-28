@@ -1,0 +1,7 @@
+2024-03-28 16:03:09,740 INFO    StreamThr :38920 [internal.py:wandb_internal():86] W&B internal server running at pid: 38920, started at: 2024-03-28 16:03:09.740233
+2024-03-28 16:03:09,742 DEBUG   HandlerThread:38920 [handler.py:handle_request():144] handle_request: status
+2024-03-28 16:03:09,751 INFO    WriterThread:38920 [datastore.py:open_for_write():85] open: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_160309-pcktnnqq/run-pcktnnqq.wandb
+2024-03-28 16:03:09,751 DEBUG   SenderThread:38920 [sender.py:send():379] send: header
+2024-03-28 16:03:09,772 DEBUG   SenderThread:38920 [sender.py:send():379] send: run
+2024-03-28 16:03:10,342 INFO    SenderThread:38920 [dir_watcher.py:__init__():211] watching files in: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_160309-pcktnnqq/files
+2024-03-28 16:03:10,342 INFO    SenderThread:38920 [sender.py:_start_run_threads():1121] run started: pcktnnqq with start time 1711609389.741196

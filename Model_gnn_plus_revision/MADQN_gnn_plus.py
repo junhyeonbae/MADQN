@@ -114,6 +114,13 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         self.eps_decay = args.eps_decay
         self.device = device
 
+        self.team_idx = None
+        self.move_count_pred = {
+            0: 0,
+            1: 0
+        }
+
+
 
         self.gdqns = [G_DQN(self.dim_act, self.predator1_obs).to(self.device) for _ in range(self.n_predator1)] + [
             G_DQN(self.dim_act, self.predator2_obs).to(self.device) for _ in range(self.n_predator2)]
@@ -154,6 +161,8 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         self.gdqn_target = self.gdqn_targets[agent]
 
 
+
+
     def set_agent_info(self, agent, pos, view_range):
 
         if agent[9] == "1":
@@ -162,6 +171,7 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
             self.pos = pos
             self.view_range = view_range
+
 
         else:
             self.idx = int(agent[11:]) + n_predator1
@@ -176,6 +186,12 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         self.gdqn_optimizer = self.gdqn_optimizers[self.idx]
         self.buffer = self.buffers[self.idx]
 
+
+    def set_team_idx(self,idx):
+        self.team_idx = idx
+
+    def move_count(self):
+        self.move_count_pred[self.team_idx] += 1
 
     def set_agent_buffer(self ,idx):
         self.buffer = self.buffers[idx]

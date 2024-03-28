@@ -1,0 +1,1 @@
+{"ep_reward": 38.0499918788672, "ep_reward_pred1": -7.800003156065941, "ep_reward_pred2": 98.79999503493309, "ep_move_move_pred1": 171, "ep_move_move_pred2": 115, "(ep_reward_pred1)/(ep_move_move_pred1)": -0.04561405354424527, "(ep_reward_pred2)/(ep_move_move_pred2)": 0.8591303916081138, "_timestamp": 1711609602.900963, "_runtime": 204.9636721611023, "_step": 2}

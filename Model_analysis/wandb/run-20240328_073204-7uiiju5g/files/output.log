@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis.py", line 384, in <module>
+    main()
+  File "/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis.py", line 265, in main
+    dist_list = madqn.dist(observation_temp)
+  File "/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/MADQN_analysis.py", line 236, in dist
+    pred_pos = np.array([[(self.view_range*2 - 1)/2, (self.view_range*2 - 1)/2]], dtype=np.int32)
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+stop
+stop
+stop
+ep: 0 ********************************************************************************
