@@ -1,4 +1,0 @@
-2024-03-28 23:41:57,332 INFO    StreamThr :44202 [internal.py:wandb_internal():86] W&B internal server running at pid: 44202, started at: 2024-03-28 23:41:57.331592
-2024-03-28 23:41:57,333 DEBUG   HandlerThread:44202 [handler.py:handle_request():144] handle_request: status
-2024-03-28 23:41:57,342 INFO    WriterThread:44202 [datastore.py:open_for_write():85] open: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240328_234157-0rafjm3z/run-0rafjm3z.wandb
-2024-03-28 23:41:57,342 DEBUG   SenderThread:44202 [sender.py:send():379] send: header

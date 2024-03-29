@@ -435,8 +435,8 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         avg_move_list_pred1 = list(self.avg_move_deque_pred1)
         avg_move_list_pred2 = list(self.avg_move_deque_pred2)
 
-        # min_dist_list_pred1 = list(self.min_dist_deque_pred1)
-        # min_dist_list_pred2 = list(self.min_dist_deque_pred2)
+        min_dist_list_pred1 = list(self.min_dist_deque_pred1)
+        min_dist_list_pred2 = list(self.min_dist_deque_pred2)
 
 
         # avg(distance) - avg(move)
@@ -454,19 +454,19 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
         plt.close()  # 현재 그림 닫기
 
-        # # min(distance) - avg(move)
-        # plt.figure(figsize=(10, 6))
-        # plt.scatter(min_dist_list_pred1, avg_move_list_pred1, facecolors='none', edgecolors='blue', label='pred1')
-        # plt.scatter(min_dist_list_pred2, avg_move_list_pred2, facecolors='none', edgecolors='red', label='pred2')
-        #
-        # plt.title('min move for the avg distance')
-        # plt.xlabel('min_dist')
-        # plt.ylabel('avg_move')
-        # plt.legend()
-        #
-        #
-        # wandb.log({"min move for the avg distance_ep_{}".format(ep): wandb.Image(plt)})
-        #
-        # plt.close()  # 현재 그림 닫기
+        # min(distance) - avg(move)
+        plt.figure(figsize=(10, 6))
+        plt.scatter(min_dist_list_pred1, avg_move_list_pred1, facecolors='none', edgecolors='blue', label='pred1')
+        plt.scatter(min_dist_list_pred2, avg_move_list_pred2, facecolors='none', edgecolors='red', label='pred2')
+
+        plt.title('min move for the avg distance')
+        plt.xlabel('min_dist')
+        plt.ylabel('avg_move')
+        plt.legend()
+
+
+        wandb.log({"min move for the avg distance_ep_{}".format(ep): wandb.Image(plt)})
+
+        plt.close()  # 현재 그림 닫기
 
 

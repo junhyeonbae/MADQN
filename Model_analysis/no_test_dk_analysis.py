@@ -10,13 +10,11 @@ from arguments import args
 
 device = 'cpu'
 
-wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-wandb.run.name = 'wandb_test2'
+# wandb.init(project="MADQN", entity='hails',config=args.__dict__)
+# wandb.run.name = 'analysis_1'
 
 render_mode = 'rgb_array'
 # render_mode = 'human'
-#env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=-0.2,
-# max_cycles=args.max_update_steps, extra_features=False,render_mode=render_mode)
 
 predator1_view_range = args.predator1_view_range
 predator2_view_range = args.predator2_view_range
@@ -33,17 +31,14 @@ predator1_adj = ((predator1_view_range*2)**2, (predator1_view_range*2)**2)
 predator2_adj = ((predator2_view_range*2)**2, (predator2_view_range*2)**2)
 
 
-
 batch_size = 1
-
-target_update_point = (1+args.max_update_steps)*(args.n_predator1+args.n_predator2+args.n_prey)
 
 
 shared = th.zeros(shared_shape)
 madqn = MADQN(n_predator1, n_predator2, predator1_obs, predator2_obs, dim_act, shared_shape, shared, args.buffer_size, device)
 
 
-def process_array_1(arr):  #predator1 (obs, ??, ??hp, predator2, predator2 hp, prey, prey hp)
+def process_array_1(arr):  #predator1 (obs, team, team_hp, predator2, predator2 hp, prey, prey hp)
     arr = np.delete(arr, [2, 4, 6], axis=2)
     combined_dim = np.logical_or(arr[:, :, 1], arr[:, :, 2])
     result = np.dstack((arr[:, :, 0], combined_dim, arr[:, :, 3]))
@@ -51,20 +46,61 @@ def process_array_1(arr):  #predator1 (obs, ??, ??hp, predator2, predator2 hp, p
     return result
 
 
-def process_array_2(arr): #predator2 (obs, ??, ??hp, prey, prey hp, predator2, predator2 hp)
+def process_array_2(arr): #predator2 (obs, team, team_hp, prey, prey hp, predator2, predator2 hp)
     arr = np.delete(arr, [2, 4, 6], axis=2)
     combined_dim = np.logical_or(arr[:, :, 1], arr[:, :, 3])
     result = np.dstack((arr[:, :, 0], combined_dim, arr[:, :, 2]))
 
     return result
 
+def check_zero_size_min_pred1(list):
 
+    if list.size > 0:
+        # 배열이 비어 있지 않으므로 최소값 찾기
+        min_value = np.min(list)
+    else:
+        min_value = args.predator1_view_range + 1
 
+    return min_value
 
+def check_zero_size_min_pred2(list):
+
+    if list.size > 0:
+        # 배열이 비어 있지 않으므로 최소값 찾기
+        min_value = np.min(list)
+    else:
+        min_value = args.predator2_view_range + 1
+
+    return min_value
+
+def check_zero_size_avg_pred1(list):
+    if list.size > 0:
+        # 배열이 비어 있지 않으므로 최소값 찾기
+        avg_value = np.mean(list)
+    else:
+        avg_value = args.predator1_view_range + 1
+
+    return avg_value
+
+def check_zero_size_avg_pred2(list):
+    if list.size > 0:
+        # 배열이 비어 있지 않으므로 최소값 찾기
+        avg_value = np.mean(list)
+    else:
+        avg_value = args.predator2_view_range + 1
+
+    return avg_value
 
 def main():
 
+    env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=args.tag_penalty,
+                                    max_cycles=args.max_update_steps, extra_features=False, render_mode=render_mode)
+
     for ep in range(args.total_ep):
+
+        # shared book reset every episode
+        madqn.reset_shred(shared)
+        env.reset(seed=args.seed)
 
         ep_reward = 0
         ep_reward_pred1 = 0
@@ -114,12 +150,11 @@ def main():
             agent_pos[agent_idx] = []
 
 
-        env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=args.tag_penalty,
-                                        max_cycles=args.max_update_steps, extra_features=False, render_mode=render_mode)
 
-        # ep ??? ???? shared ????.
-        madqn.reset_shred(shared)
-        env.reset(seed=args.seed)
+        # 밖에서 선언하면 될일이다.
+        # env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=args.tag_penalty,
+        #                                 max_cycles=args.max_update_steps, extra_features=False, render_mode=render_mode)
+
 
 
         print("ep:",ep,'*' * 80)
@@ -129,7 +164,9 @@ def main():
             step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 
             #book process atter all agents took actions
-            if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0):
+            # max_update_steps 이 끝나면  env.last()를 만들어서 truncation=TRUE 가 되어 해당 에이전트를 죽이는 과정이 필요하다.
+            if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0)
+                    and ( step_idx != args.max_update_steps)):
 
                 if step_idx <= args.book_term:
 
@@ -176,20 +213,19 @@ def main():
                 #1을 빼는 이유는 reward/move count 일때 move count = 0 이면 정의가 되지 않아서 발생하는 오류를 해결하기 위해 애초에 1을 기본값으로
                 #지정해놨었는데, 여기서는 그런 오류가 발생한 우려가 없기 때문에 -1을 해주는 것이다.
 
+
+
                 #분석을 위해 predator1 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
-                madqn.avg_dist_into_deque_pred1(np.mean(madqn.summation_team_dist[0]))
+                madqn.avg_dist_into_deque_pred1(check_zero_size_avg_pred1(madqn.summation_team_dist[0]))
                 madqn.avg_move_into_deque_pred1((madqn.step_move_count_pred[0] - 1)/n_predator1)
 
                 # 분석을 위해 predator2 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
-                madqn.avg_dist_into_deque_pred2(np.mean(madqn.summation_team_dist[1]))
+                madqn.avg_dist_into_deque_pred2(check_zero_size_avg_pred2(madqn.summation_team_dist[1]))
                 madqn.avg_move_into_deque_pred2((madqn.step_move_count_pred[1] - 1)/n_predator2)
 
                 # 분석을 위해 predator 의 min(distance)데이터 버퍼에 넣기
-                # print(iteration_number)
-                # print("한번만 나와야 함!")
-                # print("#"*20)
-                # madqn.min_dist_into_deque_pred1(np.min(madqn.summation_team_dist[0]))
-                # madqn.min_dist_into_deque_pred2(np.min(madqn.summation_team_dist[1]))
+                madqn.min_dist_into_deque_pred1(check_zero_size_min_pred1(madqn.summation_team_dist[0]))
+                madqn.min_dist_into_deque_pred2(check_zero_size_min_pred2(madqn.summation_team_dist[1]))
 
                 # 이렇게 버퍼에 넣어주었으므로 이제 적절한 타이밍에 plotting 을 하는 코드를 짜면 된다->밑에 있음
 
@@ -199,7 +235,7 @@ def main():
 
             # put experience into the buffer after second step
             if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-                    and step_idx > 1):
+                    and step_idx > 1 and step_idx != args.max_update_steps):
 
                 pred_step_rewards = 0
                 total_move_penalty = 0
@@ -252,10 +288,10 @@ def main():
 
 
 
-                if madqn.buffer.size() >= args.trainstart_buffersize:
-                    wandb.log({"pred_step_rewards": pred_step_rewards,
-                               "shared_mean": madqn.shared.mean(),
-                               "shared_std": madqn.shared.std()})
+                # if madqn.buffer.size() >= args.trainstart_buffersize:
+                #     wandb.log({"pred_step_rewards": pred_step_rewards,
+                #                "shared_mean": madqn.shared.mean(),
+                #                "shared_std": madqn.shared.std()})
 
 
             if agent[:8] == "predator":
@@ -359,11 +395,11 @@ def main():
                 madqn.shared_decay()
 
 
-        if madqn.buffer.size() >= args.trainstart_buffersize:
-            wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
-                       "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1],
-                       "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],
-                       "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
+        # if madqn.buffer.size() >= args.trainstart_buffersize:
+        #     wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
+        #                "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1],
+        #                "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],
+        #                "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
 
 
             #사실 이것도 평균을 내서 0: 움직이지 않음 1: 움직임 으로 판단하는게 좋을 것 같다.
@@ -390,6 +426,7 @@ def main():
                 madqn.target_update()
 
 
+        #wandb.plot
         if (ep % args.plot_term == 0) and (ep > 0):
             madqn.plot(ep)
 
