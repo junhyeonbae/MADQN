@@ -8,11 +8,12 @@ import wandb
 
 from arguments import args
 
+wandb.init(project="MADQN", entity='hails',config=args.__dict__)
+wandb.run.name = 'analysis_mac'
+
 
 device = 'cpu'
 
-# wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-# wandb.run.name = 'analysis_1'
 
 render_mode = 'rgb_array'
 # render_mode = 'human'
@@ -364,10 +365,10 @@ def main():
 
 
 
-                # if madqn.buffer.size() >= args.trainstart_buffersize:
-                #     wandb.log({"pred_step_rewards": pred_step_rewards,
-                #                "shared_mean": madqn.shared.mean(),
-                #                "shared_std": madqn.shared.std()})
+                if madqn.buffer.size() >= args.trainstart_buffersize:
+                    wandb.log({"pred_step_rewards": pred_step_rewards,
+                               "shared_mean": madqn.shared.mean(),
+                               "shared_std": madqn.shared.std()})
 
 
             if agent[:8] == "predator":
@@ -560,7 +561,7 @@ def main():
                 madqn.target_update()
 
 
-        #wandb.plot
+        wandb.plot
         if (ep % args.plot_term == 0) and (ep > 0):
             madqn.plot(ep)
 

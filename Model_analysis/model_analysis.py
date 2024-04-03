@@ -68,7 +68,7 @@ class G_DQN(nn.Module):
 
 
         l2_before = torch.norm(x, p=2)
-        diff = x - shared1
+        diff = x.reshape(self.observation_state) - shared1
 
         l2_outtake = torch.norm(diff, p=2)
 

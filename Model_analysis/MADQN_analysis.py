@@ -617,11 +617,11 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             next_observations = next_observations.to(self.device)
             adj = self.adj.to(self.device)
 
-            q_values, _ = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0), book[0].detach().to(self.device))
+            q_values, _,_,_,_ = self.gdqn(observations.unsqueeze(0), adj.unsqueeze(0), book[0].detach().to(self.device))
             q_values = q_values[actions]
 
 
-            next_q_values, _ = self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0), book_next[0].detach().to(self.device))
+            next_q_values, _,_,_,_ = self.gdqn_target(next_observations.unsqueeze(0), adj.unsqueeze(0), book_next[0].detach().to(self.device))
             next_q_values = torch.max(next_q_values)
 
             targets = int(rewards[0]) + (1 - int(termination[0])) * next_q_values * args.gamma
@@ -851,11 +851,11 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             overlap_pred1 = list(self.intake_overlap_with_pred1[agent])
             overlap_pred2 = list(self.intake_overlap_with_pred2[agent])
 
-            plt.scatter(overlap_pred1 ,l2_intake, facecolors='none', edgecolors=colors[agent], label='agent_{}'.format(agent))
-            plt.scatter(overlap_pred2, l2_intake, facecolors='none', edgecolors=colors[agent], label='agent_{}'.format(agent))
+            plt.scatter(overlap_pred1 ,l2_intake, facecolors='none', edgecolors=colors[agent], label='about predator1')
+            plt.scatter(overlap_pred2, l2_intake, facecolors='none', edgecolors=colors[agent+1], label='about predator2')
 
 
-            plt.title("overlap ratio - l2_{}".format(agent))
+            plt.title("overlap ratio - l2_agent{}_ep_{}".format(agent,ep))
             plt.xlabel('overlap tiles')
             plt.ylabel('l2')
             plt.legend()
