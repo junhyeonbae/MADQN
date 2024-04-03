@@ -16,24 +16,24 @@ for ep in range(1000):
 		step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 
 		if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0)\
-				and ( step_idx != args.max_update_steps):
+				and ( step_idx == args.max_update_steps):
 
-			print("step_idx",step_idx)
-			print(agent)
-			print("ep",ep)
-			print("iteration_number",iteration_number)
+			print("step_idx:{},iteration_number:{},ep:{},agent:{}".format(step_idx,iteration_number,ep,agent))
+
 
 		observation, reward, termination, truncation, info = env.last()
 
 		if termination or truncation:
 			print(agent, ' is terminated')
 			env.step(None) # need this
+			iteration_number += 1
 			continue
 		else:
 			action = env.action_space(agent).sample()
 			env.step(action)
 
 		iteration_number += 1
+
 	# env.state() # receives the entire state
 
 

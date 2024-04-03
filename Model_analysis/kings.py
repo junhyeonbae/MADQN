@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
+import torch
 
 
 
@@ -83,127 +84,250 @@ def king_adj2(n) :
     return A
 
 
+def overlap_area(a, b, x, y, side_length):
+    # 각 정사각형의 좌표를 계산 (왼쪽, 오른쪽, 위, 아래)
+    square1 = {'left': a - side_length / 2, 'right': a + side_length / 2,
+               'top': b + side_length / 2, 'bottom': b - side_length / 2}
+    square2 = {'left': x - side_length / 2, 'right': x + side_length / 2,
+               'top': y + side_length / 2, 'bottom': y - side_length / 2}
 
-# 샘플 데이터: 각 행이 한 점의 좌표를 나타냅니다.
-points = np.array([[0, 1], [1, 0], [2, 2] ,[3,3]])
+    # 겹치는 영역의 가로와 세로 길이를 계산
+    overlap_width = min(square1['right'], square2['right']) - max(square1['left'], square2['left'])
+    overlap_height = min(square1['top'], square2['top']) - max(square1['bottom'], square2['bottom'])
 
-# pdist로 각 점 쌍 사이의 거리 계산 후, squareform으로 정사각 거리 행렬 형태로 변환
-distance_matrix = squareform(pdist(points, 'euclidean'))
-
-print(pdist(points, 'euclidean'))
-print("#"*100)
-print(distance_matrix)
-print("#"*100)
-print(distance_matrix[0:2,2:4])
-print("#"*100)
-print(np.mean(distance_matrix[0:2,2:4]))
-print("#"*100)
-
-import numpy as np
-
-# 주어진 두 배열
-array1 = np.array([[4, 4], [3, 17], [17, 11]], dtype=np.int32)
-array2 = np.array([[8, 9], [1, 1], [8, 1]], dtype=np.int32)
-
-# 두 배열을 세로로(수직으로) 붙이기
-result_array = np.vstack((array1, array2))
-
-distance_matrix = squareform(pdist(result_array, 'euclidean'))
-
-print(distance_matrix)
+    # 겹치는 영역이 있다면 넓이를 계산, 없다면 0을 반환
+    if overlap_width > 0 and overlap_height > 0:
+        return overlap_width * overlap_height
+    else:
+        return 0
 
 
-# # 1로 채워진 (3, 3, 2) 배열 생성
+# 중앙의 위치가 (a, b)와 (x, y)이고, 한 변의 길이가 10인 두 정사각형의 겹치는 영역의 넓이를 계산
+a, b = 5, 5  # 첫 번째 정사각형의 중앙 좌표
+x, y = 7, 7  # 두 번째 정사각형의 중앙 좌표
+side_length = 10
 
-# array1 = np.ones((3, 3,2))
-#
-# # 0으로 채워진 (3, 3, 2) 배열 생성
-# array2 = np.zeros((3, 3,2))
-#
-# # 두 배열을 가로로 연결
-# result = np.concatenate((array1, array2), axis=0)
-#
-# # 결과를 일렬로 펴기
-# flattened_result = result.flatten()
-#
-# # 일렬로 펴진 결과 출력
-# print(flattened_result)
-
-matrix = np.array([[1, 2, 3, 4],
-                   [5, 6, 7, 8],
-                   [9, 10, 11, 12],
-                   [13, 14, 15, 16],
-                   [17, 18, 19, 20],
-                   [21, 22, 23, 24]])
-
-print(matrix[0,1:])
-print("#"*100)
+overlap = overlap_area(a, b, x, y, side_length)
+print(f'The overlapping area is: {overlap}')
 
 import numpy as np
 
-# 초기 배열
-original_array = np.array([[3, 4],
-                           [3, 17],
-                           [17, 12],
-                           [8, 9],
-                           [1, 1],
-                           [8, 1]], dtype=np.int32)
 
-# 추가할 행
-new_row = np.array([[1, 1]], dtype=np.int32)
+def overlap_area(a, b, x, y, side_length1, side_length2):
+    # 겹치는 영역의 가로와 세로 길이를 계산합니다
+    overlap_width = min(a + side_length1 / 2, x + side_length2 / 2) - max(a - side_length1 / 2, x - side_length2 / 2)
+    overlap_height = min(b + side_length1 / 2, y + side_length2 / 2) - max(b - side_length1 / 2, y - side_length2 / 2)
 
-# 배열에 새로운 행 추가
-result_array = np.append(original_array, new_row, axis=0)
+    # 겹치는 영역이 있다면 넓이를 계산, 없다면 0을 반환
+    if overlap_width > 0 and overlap_height > 0:
+        return overlap_width * overlap_height
+    else:
+        return 0
 
-print(result_array)
 
+# 정사각형들의 중앙 좌표와 한 변의 길이 (상반부는 10, 하반부는 5)
+centers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+side_lengths = [10, 10, 10, 5, 5, 5]
+
+# 겹치는 부분의 넓이를 저장할 행렬 초기화
+overlap_matrix = np.zeros((6, 6))
+
+# 각 정사각형 쌍에 대한 겹치는 영역의 넓이 계산
+for i in range(6):
+    for j in range(i + 1, 6):  # 중복 계산을 피하기 위해 j는 i+1부터 시작
+        a, b = centers[i]
+        x, y = centers[j]
+        overlap = overlap_area(a, b, x, y, side_lengths[i], side_lengths[j])
+        overlap_matrix[i, j] = overlap
+        overlap_matrix[j, i] = overlap  # 대칭성을 이용
+
+print(overlap_matrix)
 
 import numpy as np
 
-# 초기 배열
-array1 = np.array([5., 3.60555128, 6.40312424])
-array2 = np.array([1, 2, 3])
 
-# 딕셔너리 초기화
-summation_team_dist = {0: [], 1: []}
+def overlap_area(a, b, x, y, side_length1, side_length2):
+    overlap_width = min(a + side_length1 / 2, x + side_length2 / 2) - max(a - side_length1 / 2, x - side_length2 / 2)
+    overlap_height = min(b + side_length1 / 2, y + side_length2 / 2) - max(b - side_length1 / 2, y - side_length2 / 2)
 
-# 첫 번째 키의 값에 array1 할당
-summation_team_dist[0] = array1
-
-# 첫 번째 키의 값에 array2를 연결하여 다시 할당
-# summation_team_dist[0] = np.concatenate((summation_team_dist[0], array2))
+    if overlap_width > 0 and overlap_height > 0:
+        return overlap_width * overlap_height
+    else:
+        return 0
 
 
+centers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+side_lengths = [10, 10, 10, 5, 5, 5]
+
+overlap_matrix = np.zeros((6, 6))
+square_areas = np.zeros(6)  # 각 정사각형의 넓이를 저장할 배열
+
+# 각 정사각형의 넓이 계산
+for i in range(6):
+    square_areas[i] = side_lengths[i] ** 2
+
+# 겹치는 영역의 넓이 계산
+for i in range(6):
+    for j in range(i + 1, 6):
+        print(i,j)
+        a, b = centers[i]
+        x, y = centers[j]
+        overlap = overlap_area(a, b, x, y, side_lengths[i], side_lengths[j])
+        overlap_matrix[i, j] = overlap
+        overlap_matrix[j, i] = overlap
+
+# 각 행을 해당 정사각형의 넓이로 나눔
+for i in range(6):
+    overlap_matrix[i, :] /= square_areas[i]
+
+print(overlap_matrix)
 
 
-import wandb
+
+def overlap_area(a, b, x, y, side_length1, side_length2):
+    overlap_width = min(a + side_length1 / 2, x + side_length2 / 2) - max(a - side_length1 / 2, x - side_length2 / 2)
+    overlap_height = min(b + side_length1 / 2, y + side_length2 / 2) - max(b - side_length1 / 2, y - side_length2 / 2)
+
+    if overlap_width > 0 and overlap_height > 0:
+        return overlap_width * overlap_height
+    else:
+        return 0
+
+
+centers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+side_lengths = [10, 10, 10, 5, 5, 5]
+
+overlap_matrix = np.zeros((6, 6))
+square_areas = np.zeros(6)  # 각 정사각형의 넓이를 저장할 배열
+
+# 각 정사각형의 넓이 계산
+for i in range(6):
+    square_areas[i] = side_lengths[i] ** 2
+
+# 겹치는 영역의 넓이 계산
+for i in range(6):
+    for j in range(i + 1, 6):
+        print(i,j)
+        a, b = centers[i]
+        x, y = centers[j]
+        overlap = overlap_area(a, b, x, y, side_lengths[i], side_lengths[j])
+        overlap_matrix[i, j] = overlap
+        overlap_matrix[j, i] = overlap
+
+
+
+# 각 행을 해당 정사각형의 넓이로 나눔
+for i in range(6):
+    overlap_matrix[i, :] /= square_areas[i]
+
+print(overlap_matrix)
+
 import numpy as np
 
-# WandB 세션 시작
-wandb.init(project='wandb test3', entity='junhyeon')
-wandb.run.name = 'wandb_test2'
 
-import wandb
-import matplotlib.pyplot as plt
-# WandB 세션 시작
+def overlap_area(a, b, x, y, side_length1, side_length2):
+    overlap_width = min(a + side_length1 / 2, x + side_length2 / 2) - max(a - side_length1 / 2, x - side_length2 / 2)
+    overlap_height = min(b + side_length1 / 2, y + side_length2 / 2) - max(b - side_length1 / 2, y - side_length2 / 2)
+
+    if overlap_width > 0 and overlap_height > 0:
+        return overlap_width * overlap_height
+    else:
+        return 0
 
 
-# 데이터 준비
-x = [i for i in range(50)]  # X 데이터
-y = [i ** 2 for i in range(50)]  # Y 데이터
 
-a = [i for i in range(50)]  # A 데이터
-b = [-i ** 1.5 +2 for i in range(50)]  # B 데이터
+#이걸 싹다 함수로 만들수도 있을 것 같은데?
+# 이건 pos 값으로 주어지는 것이다.
+centers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+# 이건 args 으로써 주어지는 것이다.
+side_lengths = [10, 10, 10, 5, 5, 5]
 
-# Matplotlib를 사용하여 scatter plot 생성
-plt.figure(figsize=(10, 6))
-plt.scatter(x, y, color='blue', label='XY')  # X, Y 데이터를 파란색으로 표시
-plt.scatter(a, b, color='red', label='AB')  # A, B 데이터를 빨간색으로 표시
-plt.title('XY and AB Scatter Plot')
-plt.xlabel('X/A')
-plt.ylabel('Y/B')
-plt.legend()
+overlap_matrix = np.zeros((6, 6))
+square_areas = np.zeros(6)  # 각 정사각형의 넓이를 저장할 배열
 
-# WandB에 plot 이미지 로깅
-wandb.log({"XY_AB_Scatter": wandb.Image(plt)})
-plt.close()  # 현재 그림 닫기
+# 각 정사각형의 넓이 계산
+for i in range(6):
+    square_areas[i] = side_lengths[i] ** 2
+
+# 겹치는 영역의 넓이 계산
+for i in range(6):
+    for j in range(i + 1, 6):
+        a, b = centers[i]
+        x, y = centers[j]
+        overlap = overlap_area(a, b, x, y, side_lengths[i], side_lengths[j])
+        overlap_matrix[i, j] = overlap
+        overlap_matrix[j, i] = overlap
+
+# 각 행을 해당 정사각형의 넓이로 나눔
+for i in range(6):
+    overlap_matrix[i, :] /= square_areas[i]
+
+print(overlap_matrix)
+
+# 결과 행렬 초기화
+result_matrix = np.zeros((6, 2))
+
+result_matrix[:, 0] = np.sum(overlap_matrix[:, :3], axis=1)  # 첫 3개 정사각형에 대한 합
+result_matrix[:, 1] = np.sum(overlap_matrix[:, 3:], axis=1)  # 나머지 3개 정사각형에 대한 합
+
+print(result_matrix)
+
+
+# 2차원 텐서 (예: 행렬)
+x = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+
+# 각 행에 대한 L2 norm 계산
+row_norms = torch.norm(x, p=2, dim=1)
+print(row_norms)
+
+# 각 열에 대한 L2 norm 계산
+col_norms = torch.norm(x, p=2, dim=0)
+print(col_norms)
+
+for agent_idx in range(3, 6):
+    print(agent_idx)
+
+centers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+centers2 = [(5, 2), (2, 4), (7, 3), (1, 4), (5, 2), (9, 12)]
+
+
+
+
+n_predator1 =3
+n_predator2 =3
+
+predator1_view_range = 6
+predator2_view_range = 3
+
+def calculate_Overlap_ratio_intake(past, now):
+
+    centers_past = past
+    centers_past = [(x + 1, y + 1) for x, y in centers_past]
+
+    centers_now = now
+    centers_now = [(x + 1, y + 1) for x, y in centers_now]
+
+    side_lengths = [predator1_view_range*2 for i in range(n_predator1)] + [predator2_view_range*2 for i in range(n_predator2)]
+
+    overlap_matrix = np.zeros((n_predator1+n_predator2, n_predator1+n_predator2))
+
+
+    # 겹치는 영역의 넓이 계산
+    for i in range(n_predator1+n_predator2): #행의 기준이 되는 에이전트를 의미함
+        for j in range(n_predator1+n_predator2):
+            a, b = centers_now[i]
+            x, y = centers_past[j]
+            overlap = overlap_area(a, b, x, y, side_lengths[i], side_lengths[j])
+            overlap_matrix[i, j] = overlap
+
+
+    # 결과 행렬 초기화
+    result_matrix = np.zeros((n_predator1+n_predator2, 2))
+
+    result_matrix[:, 0] = np.sum(overlap_matrix[:, :n_predator1], axis=1)  # 첫 3개 정사각형에 대한 합
+    result_matrix[:, 1] = np.sum(overlap_matrix[:, n_predator2:], axis=1)  # 나머지 3개 정사각형에 대한 합
+
+    return result_matrix
+
+
+calculate_Overlap_ratio_intake(centers,centers2)

@@ -3,6 +3,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
+parser.add_argument('--dim_feature', type=int, default=4)
 parser.add_argument('--gamma', type=float, default=0.95)
 parser.add_argument('--lr', type=float, default=0.001)
 parser.add_argument('--eps', type=float, default=1)
@@ -12,13 +13,15 @@ parser.add_argument('--max_update_steps', type=int, default=100)
 parser.add_argument('--total_ep', type=int, default=5000)
 parser.add_argument('--book_decay',type=int, default=0.1)
 parser.add_argument("--book_term", type=int, default=4)
-parser.add_argument('--ep_save',type=int, default = 100)
+parser.add_argument('--ep_save',type=int, default = 1000)
+parser.add_argument('--jitter_std',type=float, default =0.5)
+
 
 
 parser.add_argument('--buffer_size', type=int, default=10000)
 parser.add_argument('--trainstart_buffersize', type=int, default=5000)
-parser.add_argument('--avg_dist_deque_len', type=int, default=300)
-parser.add_argument('--plot_term', type=int, default=200)
+parser.add_argument('--deque_len', type=int, default=400)
+parser.add_argument('--plot_term', type=int, default=50)
 
 
 parser.add_argument('--replay_times',type=float, default= 32)

@@ -110,9 +110,8 @@ def main():
 			step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 			# print(agent[:8]=='predator')
 
-
-			if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-					and step_idx > 1):
+			if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0
+					and step_idx > 1 and step_idx != args.max_update_steps):
 
 				total_last_rewards = 0
 				total_move_penalty = 0
@@ -231,7 +230,7 @@ def main():
 
 		# if madqn.buffer.size() >= args.trainstart_buffersize:
 		# ep? 100? ??? ??? target update ??.
-		if madqn.buffer.size() >= args.trainstart_buffersize:
+		if (madqn.buffer.size() >= args.trainstart_buffersize) and (ep % args.target_update == 0):
 			for agent in range(args.n_predator1 + args.n_predator2):
 				madqn.set_agent_model(agent)
 				madqn.target_update()

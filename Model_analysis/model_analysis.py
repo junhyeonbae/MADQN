@@ -52,35 +52,86 @@ class G_DQN(nn.Module):
 
         x_pre = x.reshape(-1, self.dim_feature)
 
-        x = self.gnn1(x_pre, adj)
-        x = self.tanh(x[0])
-        x = self.gnn2(x, adj).squeeze()
-        x = self.tanh(x)
+        x1 = self.gnn1(x_pre, adj)
+        x1 = self.tanh(x1[0])
+        x1 = self.gnn2(x1, adj).squeeze()
+        x1 = self.tanh(x1)
 
-        dqn = x[:, :self.dim_feature]
+        dqn = x1[:, :self.dim_feature]
 
-        shared = self.tanh(x[:, self.dim_feature:])
+        shared = self.tanh(x1[:, self.dim_feature:])
 
         shared = dqn * shared
-        shared = shared.reshape(self.observation_state)
-        #dqn = dqn.reshape(self.observation_state)
+
+
+        shared1 = shared.reshape(self.observation_state)
+
+
+        l2_before = torch.norm(x, p=2)
+        diff = x - shared1
+
+        l2_outtake = torch.norm(diff, p=2)
+
 
         info_pre = info.reshape(-1, self.dim_feature)
-        x1 = self.gnn1_info(info_pre,adj)
-        x1 = self.tanh(x1)
-        x1 = self.gnn2_info(x1[0], adj).squeeze()
-        x1 = self.tanh(x1)
-        x1 = x1.reshape(self.observation_state)
+        x2 = self.gnn1_info(info_pre,adj)
+        x2 = self.tanh(x2)
+        x2 = self.gnn2_info(x2[0], adj).squeeze()
+        x2 = self.tanh(x2)
+        x2 = x2.reshape(self.observation_state)
 
+        l2_intake = torch.norm(x2, p=2) / torch.norm(info, p=2)
 
-        x = torch.cat((shared, x1), dim=0).reshape(-1, self.dim_input).squeeze()
+        x3 = torch.cat((shared1, x2), dim=0).reshape(-1, self.dim_input).squeeze()
 
-        x = self.FC1(x)
-        x = self.tanh(x)
-        x = self.FC2(x)
+        x3 = self.FC1(x3)
+        x3 = self.tanh(x3)
+        x3 = self.FC2(x3)
 
+        # np.mean(shared) 는 에이전트가 정보를 어떻게 남기는지 보려고 하는 것
+        return x3, shared1.detach(), l2_before.detach(),  l2_outtake.detach() , l2_intake.detach()
 
-        return x, shared.detach()
+    # def forward(self, x, adj, info):
+    #
+    #     try:
+    #         torch.cuda.empty_cache()
+    #     except:
+    #         pass
+    #
+    #     if isinstance(x, np.ndarray):
+    #         x = torch.tensor(x).float()
+    #     else:
+    #         pass
+    #
+    #     x_pre = x.reshape(-1, self.dim_feature)
+    #
+    #     x = self.gnn1(x_pre, adj)
+    #     x = self.tanh(x[0])
+    #     x = self.gnn2(x, adj).squeeze()
+    #     x = self.tanh(x)
+    #
+    #     dqn = x[:, :self.dim_feature]
+    #
+    #     shared = self.tanh(x[:, self.dim_feature:])
+    #
+    #     shared = dqn * shared
+    #     shared = shared.reshape(self.observation_state)
+    #     # dqn = dqn.reshape(self.observation_state)
+    #
+    #     info_pre = info.reshape(-1, self.dim_feature)
+    #     x1 = self.gnn1_info(info_pre, adj)
+    #     x1 = self.tanh(x1)
+    #     x1 = self.gnn2_info(x1[0], adj).squeeze()
+    #     x1 = self.tanh(x1)
+    #     x1 = x1.reshape(self.observation_state)
+    #
+    #     x = torch.cat((shared, x1), dim=0).reshape(-1, self.dim_input).squeeze()
+    #
+    #     x = self.FC1(x)
+    #     x = self.tanh(x)
+    #     x = self.FC2(x)
+    #
+    #     return x, shared.detach()
 
 
 

@@ -10,8 +10,8 @@ from arguments import args
 
 device = 'cpu'
 
-# wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-# wandb.run.name = 'analysis_1'
+wandb.init(project="MADQN", entity='hails',config=args.__dict__)
+wandb.run.name = 'analysis_1'
 
 render_mode = 'rgb_array'
 # render_mode = 'human'
@@ -36,6 +36,14 @@ batch_size = 1
 
 shared = th.zeros(shared_shape)
 madqn = MADQN(n_predator1, n_predator2, predator1_obs, predator2_obs, dim_act, shared_shape, shared, args.buffer_size, device)
+
+
+# for i in range(n_predator1 + n_predator2):
+# 	madqn.gdqns[i].load_state_dict(th.load(f'./model_cen_save/model_{i}_ep50.pt'))
+
+		# model_file_name = f'./model_cen_save/model_{i}_ep50.pt'
+		# model_state_dict = th.load(model_file_name)
+		# madqn.gdqns[i].load_state_dict(model_state_dict)
 
 
 def process_array_1(arr):  #predator1 (obs, team, team_hp, predator2, predator2 hp, prey, prey hp)
@@ -100,17 +108,16 @@ def main():
 
         # shared book reset every episode
         madqn.reset_shred(shared)
+        # reset ep_move_count
+        madqn.reset_ep_move_count()
+        # env reset
         env.reset(seed=args.seed)
 
         ep_reward = 0
         ep_reward_pred1 = 0
         ep_reward_pred2 = 0
+
         iteration_number = 0
-
-
-
-        # reset ep_move_count
-        madqn.reset_ep_move_count()
 
 
         observations_dict = {}
@@ -150,92 +157,108 @@ def main():
             agent_pos[agent_idx] = []
 
 
-
-        # 밖에서 선언하면 될일이다.
-        # env = hetero_adversarial_v1.env(map_size=args.map_size, minimap_mode=False, tag_penalty=args.tag_penalty,
-        #                                 max_cycles=args.max_update_steps, extra_features=False, render_mode=render_mode)
-
-
-
         print("ep:",ep,'*' * 80)
 
         for agent in env.agent_iter():
 
             step_idx = iteration_number // (args.n_predator1 + args.n_predator2 + args.n_prey)
 
+
+            if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0
+                    and step_idx > 0):
+
+                madqn.shared_decay()
+
             #book process atter all agents took actions
             # max_update_steps 이 끝나면  env.last()를 만들어서 truncation=TRUE 가 되어 해당 에이전트를 죽이는 과정이 필요하다.
-            if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0)
-                    and ( step_idx != args.max_update_steps)):
+            if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0) and (iteration_number > 0):
 
-                if step_idx <= args.book_term:
+                if step_idx == args.max_update_steps :
 
-                    for idx in range(n_predator1 + n_predator2):
+                    if step_idx <= args.book_term:
 
-                        madqn.set_agent_pos(agent_pos[idx][-1])
+                        for idx in range(n_predator1 + n_predator2):
 
-                        if idx < args.n_predator1:
-                            madqn.set_agent_shared(predator1_view_range)
-                        else:
-                            madqn.set_agent_shared(predator2_view_range)
+                            madqn.set_agent_pos(agent_pos[idx][-1])
 
-                        # self.to_guestbook(shared_info.to('cpu'))
-                        madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
+                            if idx < args.n_predator1:
+                                madqn.set_agent_shared(predator1_view_range)
+                            else:
+                                madqn.set_agent_shared(predator2_view_range)
+
+                            # self.to_guestbook(shared_info.to('cpu'))
+                            madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
+
+                    else:
+                        # erase last step book information
+                        for idx in range(n_predator1 + n_predator2):
+
+                            madqn.set_agent_pos(agent_pos[idx][-(args.book_term + 1)])
+
+                            if idx < args.n_predator1:
+                                madqn.set_agent_shared(predator1_view_range)
+                            else:
+                                madqn.set_agent_shared(predator2_view_range)
+
+                            # self.to_guestbook(shared_info.to('cpu'))
+                            madqn.to_guestbook(-(args.book_decay ** (args.book_term)) * shared_info_dict[idx][
+                                -(args.book_term + 1)].to('cpu'))
+
+                        # Add recent Step information
+                        for idx in range(n_predator1 + n_predator2):
+
+                            madqn.set_agent_pos(agent_pos[idx][-1])
+
+                            if idx < args.n_predator1:
+                                madqn.set_agent_shared(predator1_view_range)
+                            else:
+                                madqn.set_agent_shared(predator2_view_range)
+
+                            madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
+
+                    # avg(dist(prey))-move plotting process for each team
+
+                    # 1을 빼는 이유는 reward/move count 일때 move count = 0 이면 정의가 되지 않아서 발생하는 오류를 해결하기 위해 애초에 1을 기본값으로
+                    # 지정해놨었는데, 여기서는 그런 오류가 발생한 우려가 없기 때문에 -1을 해주는 것이다.
+
+                    # 분석을 위해 predator1 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
+                    madqn.avg_dist_into_deque_pred1(check_zero_size_avg_pred1(madqn.summation_team_dist[0]))
+                    madqn.avg_move_into_deque_pred1((madqn.step_move_count_pred[0] - 1) / n_predator1)
+
+                    # 분석을 위해 predator2 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
+                    madqn.avg_dist_into_deque_pred2(check_zero_size_avg_pred2(madqn.summation_team_dist[1]))
+                    madqn.avg_move_into_deque_pred2((madqn.step_move_count_pred[1] - 1) / n_predator2)
+
+                    # 분석을 위해 predator 의 min(distance)데이터 버퍼에 넣기
+                    madqn.min_dist_into_deque_pred1(check_zero_size_min_pred1(madqn.summation_team_dist[0]))
+                    madqn.min_dist_into_deque_pred2(check_zero_size_min_pred2(madqn.summation_team_dist[1]))
+
+                    # 이렇게 버퍼에 넣어주었으므로 이제 적절한 타이밍에 plotting 을 하는 코드를 짜면 된다->밑에 있음
+
+                    madqn.reset_step_move_count()  # 매스텝마다 이걸 지워주어야 한다.
+                    madqn.reset_summation_team_dist()  # 거리도 지워주어야 한다.
+
 
                 else:
-                    # erase last step book information
-                    for idx in range(n_predator1 + n_predator2):
+                    madqn.avg_dist_into_deque_pred1(check_zero_size_avg_pred1(madqn.summation_team_dist[0]))
+                    madqn.avg_move_into_deque_pred1((madqn.step_move_count_pred[0] - 1) / n_predator1)
 
-                        madqn.set_agent_pos(agent_pos[idx][-(args.book_term+1)])
+                    # 분석을 위해 predator2 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
+                    madqn.avg_dist_into_deque_pred2(check_zero_size_avg_pred2(madqn.summation_team_dist[1]))
+                    madqn.avg_move_into_deque_pred2((madqn.step_move_count_pred[1] - 1) / n_predator2)
 
-                        if idx < args.n_predator1:
-                            madqn.set_agent_shared(predator1_view_range)
-                        else:
-                            madqn.set_agent_shared(predator2_view_range)
+                    # 분석을 위해 predator 의 min(distance)데이터 버퍼에 넣기
+                    madqn.min_dist_into_deque_pred1(check_zero_size_min_pred1(madqn.summation_team_dist[0]))
+                    madqn.min_dist_into_deque_pred2(check_zero_size_min_pred2(madqn.summation_team_dist[1]))
 
-                        # self.to_guestbook(shared_info.to('cpu'))
-                        madqn.to_guestbook(-(args.book_decay**(args.book_term))*shared_info_dict[idx][-(args.book_term+1)].to('cpu'))
+                    # 이렇게 버퍼에 넣어주었으므로 이제 적절한 타이밍에 plotting 을 하는 코드를 짜면 된다->밑에 있음
 
-                    # Add recent Step information
-                    for idx in range(n_predator1 + n_predator2):
-
-                        madqn.set_agent_pos(agent_pos[idx][-1])
-
-                        if idx < args.n_predator1:
-                            madqn.set_agent_shared(predator1_view_range)
-                        else:
-                            madqn.set_agent_shared(predator2_view_range)
-
-                        madqn.to_guestbook(shared_info_dict[idx][-1].to('cpu'))
-
-                # avg(dist(prey))-move plotting process for each team
-
-                #1을 빼는 이유는 reward/move count 일때 move count = 0 이면 정의가 되지 않아서 발생하는 오류를 해결하기 위해 애초에 1을 기본값으로
-                #지정해놨었는데, 여기서는 그런 오류가 발생한 우려가 없기 때문에 -1을 해주는 것이다.
-
-
-
-                #분석을 위해 predator1 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
-                madqn.avg_dist_into_deque_pred1(check_zero_size_avg_pred1(madqn.summation_team_dist[0]))
-                madqn.avg_move_into_deque_pred1((madqn.step_move_count_pred[0] - 1)/n_predator1)
-
-                # 분석을 위해 predator2 의 avg(distance)와 avg(count)데이터 버퍼에 넣기
-                madqn.avg_dist_into_deque_pred2(check_zero_size_avg_pred2(madqn.summation_team_dist[1]))
-                madqn.avg_move_into_deque_pred2((madqn.step_move_count_pred[1] - 1)/n_predator2)
-
-                # 분석을 위해 predator 의 min(distance)데이터 버퍼에 넣기
-                madqn.min_dist_into_deque_pred1(check_zero_size_min_pred1(madqn.summation_team_dist[0]))
-                madqn.min_dist_into_deque_pred2(check_zero_size_min_pred2(madqn.summation_team_dist[1]))
-
-                # 이렇게 버퍼에 넣어주었으므로 이제 적절한 타이밍에 plotting 을 하는 코드를 짜면 된다->밑에 있음
-
-                madqn.reset_step_move_count() #매스텝마다 이걸 지워주어야 한다.
-                madqn.reset_summation_team_dist() #거리도 지워주어야 한다.
-
+                    madqn.reset_step_move_count()  # 매스텝마다 이걸 지워주어야 한다.
+                    madqn.reset_summation_team_dist()  # 거리도 지워주어야 한다.
 
             # put experience into the buffer after second step
-            if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-                    and step_idx > 1 and step_idx != args.max_update_steps):
+            if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0
+                    and step_idx > 1 ):
 
                 pred_step_rewards = 0
                 total_move_penalty = 0
@@ -288,10 +311,10 @@ def main():
 
 
 
-                # if madqn.buffer.size() >= args.trainstart_buffersize:
-                #     wandb.log({"pred_step_rewards": pred_step_rewards,
-                #                "shared_mean": madqn.shared.mean(),
-                #                "shared_std": madqn.shared.std()})
+                if madqn.buffer.size() >= args.trainstart_buffersize:
+                    wandb.log({"pred_step_rewards": pred_step_rewards,
+                               "shared_mean": madqn.shared.mean(),
+                               "shared_std": madqn.shared.std()})
 
 
             if agent[:8] == "predator":
@@ -329,11 +352,8 @@ def main():
                     madqn.put_dist(dist_list)
 
 
-
                 madqn.set_agent_info(agent, pos, view_range)
                 # avg_dist = madqn.avg_dist(observation_temp) 개인에 대해서 어떻게 행동하는지 찍을 것이 아니기 때문에 당장은 필요없다.
-
-
 
                 if termination or truncation:
                     print(agent , 'is terminated')
@@ -389,22 +409,22 @@ def main():
 
             iteration_number += 1
 
-            if ((((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0)
-                    and step_idx > 0):
+            # if (((iteration_number) % (args.n_predator1 + args.n_predator2 + args.n_prey)) == 0
+            #         and step_idx > 0 and step_idx != args.max_update_steps):
+            #
+            #     madqn.shared_decay()
 
-                madqn.shared_decay()
 
-
-        # if madqn.buffer.size() >= args.trainstart_buffersize:
-        #     wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
-        #                "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1],
-        #                "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],
-        #                "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
+        if madqn.buffer.size() >= args.trainstart_buffersize:
+            wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
+                       "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1],
+                       "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],
+                       "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
 
 
             #사실 이것도 평균을 내서 0: 움직이지 않음 1: 움직임 으로 판단하는게 좋을 것 같다.
-            # wandb.log({"ep_move_move_pred1": madqn.ep_move_count_pred[0]})
-            # wandb.log({"ep_move_move_pred2": madqn.ep_move_count_pred[1]})
+            # wandb.log({"ep_move_pred1": madqn.ep_move_count_pred[0]})
+            # wandb.log({"ep_move_pred2": madqn.ep_move_count_pred[1]})
 
             # ep당 움직임에 대해 얼마나 reward를 받는지를 알 수 있다.
             # wandb.log({"(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0]})
@@ -432,10 +452,10 @@ def main():
 
 
 
-        # if (ep % args.ep_save) ==0 :
-        #     for i in range(len(madqn.gdqns)) :
-        #         th.save(madqn.gdqns[i].state_dict(), 'model_save/'+'model_'+ str(i) + '_ep' +str(ep) +'.pt')
-        #         th.save(madqn.gdqns[i].state_dict(), 'model_save/' + 'model_target_' + str(i) + '_ep' + str(ep)+ '.pt')
+        if (ep % args.ep_save) ==0 :
+            for i in range(len(madqn.gdqns)) :
+                th.save(madqn.gdqns[i].state_dict(), 'model_save/'+'model_'+ str(i) + '_ep' +str(ep) +'.pt')
+                th.save(madqn.gdqns[i].state_dict(), 'model_save/' + 'model_target_' + str(i) + '_ep' + str(ep)+ '.pt')
 
     print('*' * 10, 'train over', '*' * 10)
 
