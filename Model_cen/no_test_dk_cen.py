@@ -17,7 +17,7 @@ device = 'cpu'
 render_mode = 'rgb_array'
 # render_mode = "human"
 
-entire_state = (args.map_size,args.map_size,3)
+entire_state = (args.map_size,args.map_size,args.dim_feature)
 dim_act = 13
 n_predator1 = args.n_predator1
 n_predator2 = args.n_predator1
@@ -26,6 +26,7 @@ n_prey = args.n_prey
 
 
 madqn = MADQN(n_predator1, n_predator2, dim_act ,entire_state, device, buffer_size=args.buffer_size)
+
 # for i in range(n_predator1 + n_predator2):
 # 	madqn.gdqns[i].load_state_dict(th.load(f'./model_cen_save/model_{i}_ep50.pt'))
 
@@ -37,33 +38,27 @@ madqn = MADQN(n_predator1, n_predator2, dim_act ,entire_state, device, buffer_si
 		# # ?? ?? ??? ?? ??? ??
 		# madqn.gdqns[i].load_state_dict(model_state_dict)
 
-def process_array(arr):
+
+
+def process_array(arr):  #predator1 (obs, team, team_hp, predator2, predator2 hp, prey, prey hp)
 
 	arr = np.delete(arr, [2, 4, 6], axis=2)
-	combined_dim = np.logical_or(arr[:, :, 1], arr[:, :, 2])
-	result = np.dstack((arr[:, :, 0], combined_dim, arr[:, :, 3]))
+	result = np.dstack((arr[:, :, 0], arr[:, :, 1], arr[:, :, 2], arr[:, :, 3]))
 
-	pos_list = np.argwhere(result[:, :, 1] == 1)
+	pos_list1 = np.argwhere(result[:, :, 1] == 1)
+	pos_list2 = np.argwhere(result[:, :, 2] == 1)
 
-	for i in pos_list:
+	for i in pos_list1:
+		result[i[0] + 1, i[1], 1] = 1
+		result[i[0], i[1] + 1, 1] = 1
+		result[i[0] + 1, i[1] + 1, 1] = 1
 
-		result[i[0]+1, i[1], 1] = 1
-		result[i[0], i[1]+1, 1] = 1
-		result[i[0]+1, i[1]+1, 1] = 1
-
+	for i in pos_list2:
+		result[i[0] + 1, i[1], 2] = 1
+		result[i[0], i[1] + 1, 2] = 1
+		result[i[0] + 1, i[1] + 1, 2] = 1
 
 	return result
-
-
-# def process_array_2(arr):
-#
-# 	arr = np.delete(arr, [0, 2, 4, 6], axis=2)
-# 	combined_dim = np.logical_or(arr[:, :, 1], arr[:, :, 2])
-# 	result = np.dstack((arr[:, :, 0], combined_dim))
-#
-# 	return result
-
-
 
 def main():
 

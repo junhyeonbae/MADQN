@@ -1,6 +1,6 @@
 from magent2.environments import hetero_adversarial_v1
 from magent2.environments import hetero_adversarial_v1
-from MADQN_analysis import MADQN ,calculate_Overlap_ratio,prey_number,calculate_Overlap_ratio_intake
+from MADQN_analysis import MADQN ,calculate_Overlap_ratio, prey_number,calculate_Overlap_ratio_intake,coor_list_pred1,coor_list_pred2, intake_sum, intake_inner
 
 import numpy as np
 import torch as th
@@ -8,15 +8,15 @@ import wandb
 
 from arguments import args
 
-wandb.init(project="MADQN", entity='hails',config=args.__dict__)
-wandb.run.name = 'analysis_mac'
+# wandb.init(project="MADQN", entity='hails',config=args.__dict__)
+# wandb.run.name = 'analysis_mac'
 
 
 device = 'cpu'
 
 
-render_mode = 'rgb_array'
-# render_mode = 'human'
+# render_mode = 'rgb_array'
+render_mode = 'human'
 
 predator1_view_range = args.predator1_view_range
 predator2_view_range = args.predator2_view_range
@@ -365,10 +365,10 @@ def main():
 
 
 
-                if madqn.buffer.size() >= args.trainstart_buffersize:
-                    wandb.log({"pred_step_rewards": pred_step_rewards,
-                               "shared_mean": madqn.shared.mean(),
-                               "shared_std": madqn.shared.std()})
+                # if madqn.buffer.size() >= args.trainstart_buffersize:
+                #     wandb.log({"pred_step_rewards": pred_step_rewards,
+                #                "shared_mean": madqn.shared.mean(),
+                #                "shared_std": madqn.shared.std()})
 
 
             if agent[:8] == "predator":
@@ -390,6 +390,8 @@ def main():
 
 
 
+
+
                 if agent[9] == "1":
                     idx = int(agent[11:])
                     pos = pos_predator1[idx]
@@ -399,6 +401,10 @@ def main():
                     madqn.set_team_idx(0)
                     dist_list = madqn.dist(observation_temp) #현재 agent와 다른 prey들과의 거리를 나타낸 리스트를 dist_list 에 저장한다.
                     madqn.concat_dist(dist_list) #현재 agent가 해당하는 팀의 summation_team_dist 에 prey들과의 거리 리스트를 concat한다. 그럼, 모든 step 이 끝났을때 팀 전체의 prey까지의 거리의 평균을 구할 수 있다.
+
+                    overlap_pos_list = np.concatenate(
+                        ([entire_pos_list[idx]], entire_pos_list[0:idx], entire_pos_list[(idx + 1):]))
+                    overlap_tiles_pred1, overlap_tiles_pred2 = coor_list_pred1(overlap_pos_list) #첫번째는 본인이고,그 뒤로 n_predator1 -1 개의 predator1, n_predator2개의 predator2
 
 
 
@@ -411,6 +417,10 @@ def main():
                     madqn.set_team_idx(1)
                     dist_list = madqn.dist(observation_temp)
                     madqn.concat_dist(dist_list)
+
+                    overlap_pos_list = np.concatenate(
+                        ([entire_pos_list[idx]], entire_pos_list[0:idx], entire_pos_list[(idx + 1):]))
+                    overlap_tiles_pred1, overlap_tiles_pred2 = coor_list_pred2(overlap_pos_list) #첫번째는 본인이고,그 뒤로 n_predator1개의 predator1, n_predator2 - 1개의 predator2
 
 
                 madqn.set_agent_info(agent, pos, view_range)
@@ -431,8 +441,25 @@ def main():
                     continue
 
                 else:
-                    action, book ,shared_info, l2_before, l2_outtake,  l2_intake = madqn.get_action(state=observation_temp, mask=None)
+                    action, book ,shared_info, l2_before, l2_outtake, shared_sum,  l2_intake , after_gnn = madqn.get_action(state=observation_temp, mask=None)
                     env.step(action)
+
+
+                    #수정한 intake
+                    intake_sum_with_pred1 = intake_sum(book, after_gnn, overlap_tiles_pred1)
+                    intake_sum_with_pred2 = intake_sum(book, after_gnn, overlap_tiles_pred2)
+                    madqn.intake_sum_with_pred1_deque_dict[idx].append(intake_sum_with_pred1)
+                    madqn.intake_sum_with_pred2_deque_dict[idx].append(intake_sum_with_pred2)
+
+                    intake_inner_with_pred1 = intake_inner(book, after_gnn, overlap_tiles_pred1)
+                    intake_inner_with_pred2 = intake_inner(book, after_gnn, overlap_tiles_pred2)
+                    madqn.intake_inner_with_pred1_deque_dict[idx].append(intake_inner_with_pred1)
+                    madqn.intake_inner_with_pred2_deque_dict[idx].append(intake_inner_with_pred2)
+
+                    madqn.tiles_number_with_pred1_deque_dict[idx].append(len(overlap_tiles_pred1))
+                    madqn.tiles_number_with_pred2_deque_dict[idx].append(len(overlap_tiles_pred2))
+
+
 
                     avg_dist = madqn.avg_dist(observation_temp)
                     min_dist = madqn.min_dist(observation_temp)
@@ -444,6 +471,7 @@ def main():
                     number = prey_number(observation_temp)
                     madqn.prey_number_deque_dict[idx].append(number)
 
+                    madqn.shared_mean_deque_dict[idx].append(l2_before)
                     madqn.l2_before_outtake_deque_dict[idx].append(l2_before)
                     madqn.l2_outtake_deque_dict[idx].append(l2_outtake)
 
@@ -537,11 +565,11 @@ def main():
 
 
 
-        if madqn.buffer.size() >= args.trainstart_buffersize:
-            wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
-                       "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1], #사실 이것도 평균을 내서 0: 움직이지 않음 1: 움직임 으로 판단하는게 좋을 것 같다.
-                       "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],       # ep당 움직임에 대해 얼마나 reward를 받는지를 알 수 있다.
-                       "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
+        # if madqn.buffer.size() >= args.trainstart_buffersize:
+        #     wandb.log({"ep_reward": ep_reward,"ep_reward_pred1": ep_reward_pred1,"ep_reward_pred2": ep_reward_pred2,
+        #                "ep_move_pred1": madqn.ep_move_count_pred[0],"ep_move_pred2": madqn.ep_move_count_pred[1], #사실 이것도 평균을 내서 0: 움직이지 않음 1: 움직임 으로 판단하는게 좋을 것 같다.
+        #                "(ep_reward_pred1)/(ep_move_move_pred1)": ep_reward_pred1/madqn.ep_move_count_pred[0],       # ep당 움직임에 대해 얼마나 reward를 받는지를 알 수 있다.
+        #                "(ep_reward_pred2)/(ep_move_move_pred2)": ep_reward_pred2/madqn.ep_move_count_pred[1]})
 
 
 
@@ -561,9 +589,9 @@ def main():
                 madqn.target_update()
 
 
-        wandb.plot
-        if (ep % args.plot_term == 0) and (ep > 0):
-            madqn.plot(ep)
+        # wandb.plot
+        # if (ep % args.plot_term == 0) and (ep > 0):
+        #     madqn.plot(ep)
 
 
 

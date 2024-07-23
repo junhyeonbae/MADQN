@@ -1,0 +1,1376 @@
+2024-04-04 08:22:08,206 INFO    StreamThr :72216 [internal.py:wandb_internal():86] W&B internal server running at pid: 72216, started at: 2024-04-04 08:22:08.205484
+2024-04-04 08:22:08,207 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status
+2024-04-04 08:22:08,218 INFO    WriterThread:72216 [datastore.py:open_for_write():85] open: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/run-ew3cvhnx.wandb
+2024-04-04 08:22:08,218 DEBUG   SenderThread:72216 [sender.py:send():379] send: header
+2024-04-04 08:22:08,239 DEBUG   SenderThread:72216 [sender.py:send():379] send: run
+2024-04-04 08:22:08,728 INFO    SenderThread:72216 [dir_watcher.py:__init__():211] watching files in: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files
+2024-04-04 08:22:08,728 INFO    SenderThread:72216 [sender.py:_start_run_threads():1121] run started: ew3cvhnx with start time 1712186528.207225
+2024-04-04 08:22:08,728 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:08,728 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:08,737 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: check_version
+2024-04-04 08:22:08,738 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: check_version
+2024-04-04 08:22:08,799 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: run_start
+2024-04-04 08:22:08,800 DEBUG   HandlerThread:72216 [system_info.py:__init__():31] System info init
+2024-04-04 08:22:08,800 DEBUG   HandlerThread:72216 [system_info.py:__init__():46] System info init done
+2024-04-04 08:22:08,800 INFO    HandlerThread:72216 [system_monitor.py:start():181] Starting system monitor
+2024-04-04 08:22:08,800 INFO    SystemMonitor:72216 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2024-04-04 08:22:08,800 INFO    HandlerThread:72216 [system_monitor.py:probe():201] Collecting system info
+2024-04-04 08:22:08,801 INFO    SystemMonitor:72216 [interfaces.py:start():190] Started cpu monitoring
+2024-04-04 08:22:08,801 DEBUG   HandlerThread:72216 [system_info.py:probe():195] Probing system
+2024-04-04 08:22:08,801 INFO    SystemMonitor:72216 [interfaces.py:start():190] Started disk monitoring
+2024-04-04 08:22:08,806 INFO    SystemMonitor:72216 [interfaces.py:start():190] Started gpuapple monitoring
+2024-04-04 08:22:08,808 INFO    SystemMonitor:72216 [interfaces.py:start():190] Started memory monitoring
+2024-04-04 08:22:08,809 INFO    SystemMonitor:72216 [interfaces.py:start():190] Started network monitoring
+2024-04-04 08:22:08,815 DEBUG   HandlerThread:72216 [system_info.py:_probe_git():180] Probing git
+2024-04-04 08:22:08,842 DEBUG   HandlerThread:72216 [system_info.py:_probe_git():188] Probing git done
+2024-04-04 08:22:08,842 DEBUG   HandlerThread:72216 [system_info.py:probe():240] Probing system done
+2024-04-04 08:22:08,842 DEBUG   HandlerThread:72216 [system_monitor.py:probe():210] {'os': 'macOS-13.3-arm64-arm-64bit', 'python': '3.8.18', 'heartbeatAt': '2024-04-03T23:22:08.801631', 'startedAt': '2024-04-03T23:22:08.196870', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/no_test_dk_analysis4.py', 'codePath': 'Model_analysis/no_test_dk_analysis4.py', 'git': {'remote': 'https://github.com/junhyeonbae/MADQN.git', 'commit': '1c70d6b1146dd36da881601d27c6286a30ce0700'}, 'email': 'bjhdo0807@gmail.com', 'root': '/Users/junhyeonbae/PycharmProjects/MADQN', 'host': 'Junui-MacBookPro.local', 'username': 'junhyeonbae', 'executable': '/Users/junhyeonbae/anaconda3/envs/MAgent2_hetero/bin/python', 'cpu_count': 10, 'cpu_count_logical': 10, 'disk': {'total': 460.4317207336426, 'used': 11.343341827392578}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2024-04-04 08:22:08,843 INFO    HandlerThread:72216 [system_monitor.py:probe():211] Finished collecting system info
+2024-04-04 08:22:08,843 INFO    HandlerThread:72216 [system_monitor.py:probe():214] Publishing system info
+2024-04-04 08:22:08,843 DEBUG   HandlerThread:72216 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2024-04-04 08:22:08,843 DEBUG   HandlerThread:72216 [system_info.py:_save_pip():67] Saving pip packages done
+2024-04-04 08:22:08,843 DEBUG   HandlerThread:72216 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2024-04-04 08:22:09,732 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:09,733 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/conda-environment.yaml
+2024-04-04 08:22:09,733 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/requirements.txt
+2024-04-04 08:22:11,403 DEBUG   HandlerThread:72216 [system_info.py:_save_conda():86] Saving conda packages done
+2024-04-04 08:22:11,404 INFO    HandlerThread:72216 [system_monitor.py:probe():216] Finished publishing system info
+2024-04-04 08:22:11,410 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:11,410 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2024-04-04 08:22:11,413 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:22:11,414 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:22:11,734 DEBUG   SenderThread:72216 [sender.py:send():379] send: telemetry
+2024-04-04 08:22:11,734 DEBUG   SenderThread:72216 [sender.py:send():379] send: telemetry
+2024-04-04 08:22:11,735 DEBUG   SenderThread:72216 [sender.py:send():379] send: run
+2024-04-04 08:22:11,740 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/config.yaml
+2024-04-04 08:22:11,740 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/conda-environment.yaml
+2024-04-04 08:22:11,740 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-metadata.json
+2024-04-04 08:22:11,959 INFO    SenderThread:72216 [sender.py:send_run():999] updated run: ew3cvhnx
+2024-04-04 08:22:12,514 INFO    wandb-upload_0:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/4u9g3ue5-wandb-metadata.json
+2024-04-04 08:22:12,742 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:13,209 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:14,747 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:16,757 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:18,209 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:18,766 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:20,772 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:22,779 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:23,211 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:24,782 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:26,418 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:22:26,419 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:22:26,788 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:28,214 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:28,796 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:30,802 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:32,810 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:33,231 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:34,272 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:34,272 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:34,273 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:34,273 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:34,633 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:34,634 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:34,634 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:34,635 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:34,817 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:34,817 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:34,976 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:34,976 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:34,976 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:34,977 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:35,397 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:35,398 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:35,398 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:35,399 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:35,771 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:35,771 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:35,771 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:35,772 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:35,822 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:36,118 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:36,118 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:36,118 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:36,119 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:36,465 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:36,465 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:36,465 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:36,465 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:36,826 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:36,826 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:36,861 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:36,861 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:36,861 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:36,861 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:37,226 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:37,227 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:37,227 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:37,227 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:37,594 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:37,594 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:37,594 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:37,594 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:37,827 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:37,966 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:37,967 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:37,967 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:37,967 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:38,297 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:38,401 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:38,504 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:38,504 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:38,504 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:38,795 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:38,796 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:38,796 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:38,796 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:38,832 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/config.yaml
+2024-04-04 08:22:38,833 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:38,833 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:39,220 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:39,220 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:39,220 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:39,220 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:39,683 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:39,683 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:39,683 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:39,683 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:39,837 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:40,094 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:40,095 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:40,095 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:40,095 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:40,490 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:40,491 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:40,491 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:40,491 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:40,839 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:40,840 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:40,859 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:40,860 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:40,861 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:40,861 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:41,257 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:41,258 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:41,258 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:41,258 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:41,418 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:22:41,418 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:22:41,664 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:41,682 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:41,682 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:41,683 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:41,844 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:42,111 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:42,111 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:42,111 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:42,111 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:42,502 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:42,502 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:42,503 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:42,503 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:42,848 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:42,848 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:42,894 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:42,894 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:42,894 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:42,894 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:43,292 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:43,293 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:43,293 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:43,293 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:43,670 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:43,670 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:43,671 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:43,671 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:43,671 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:43,853 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:44,046 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:44,048 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:44,048 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:44,048 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:44,436 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:44,437 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:44,437 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:44,438 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:44,828 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:44,829 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:44,829 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:44,829 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:44,858 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:44,859 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:45,203 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:45,203 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:45,204 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:45,204 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:45,557 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:45,558 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:45,558 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:45,558 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:45,864 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:45,924 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:45,924 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:45,924 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:45,925 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:46,291 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:46,292 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:46,292 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:46,292 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:46,737 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:46,738 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:46,738 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:46,738 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:46,875 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:46,875 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:47,173 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:47,173 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:47,173 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:47,174 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:47,572 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:47,573 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:47,573 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:47,573 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:47,884 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:48,026 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:48,027 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:48,027 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:48,027 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:48,415 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:48,416 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:48,416 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:48,416 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:48,780 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:48,780 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:48,780 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:48,780 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:48,783 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:48,888 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:48,889 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:49,146 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:49,147 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:49,147 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:49,147 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:49,508 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:49,508 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:49,509 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:49,509 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:49,877 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:49,878 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:49,878 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:49,878 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:49,890 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:50,257 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:50,258 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:50,258 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:50,259 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:50,627 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:50,627 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:50,627 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:50,627 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:50,890 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:50,890 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:50,985 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:50,986 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:50,986 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:50,986 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:51,343 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:51,343 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:51,343 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:51,343 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:51,697 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:51,698 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:51,698 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:51,698 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:51,894 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:52,117 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:52,117 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:52,117 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:52,117 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:52,486 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:52,487 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:52,487 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:52,487 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:52,869 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:52,869 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:52,870 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:52,870 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:52,898 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:52,898 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:53,264 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:53,265 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:53,266 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:53,266 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:53,268 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:53,268 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:53,268 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:53,268 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:53,901 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:54,059 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,060 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,061 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/out take_pred1_case1_ep_50_51_e5d184b6df920f739068.png with policy now
+2024-04-04 08:22:54,062 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,062 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,062 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:54,067 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,249 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,249 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,249 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/out take_pred2_case1_ep_50_52_08f3016fd83ea04b8143.png with policy now
+2024-04-04 08:22:54,249 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,249 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,250 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,373 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,373 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,373 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent0_ep_50_53_afe77a3505a8d1f77007.png with policy now
+2024-04-04 08:22:54,373 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,373 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,374 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,498 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,498 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,498 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent1_ep_50_54_8b38f70afe27a3490a50.png with policy now
+2024-04-04 08:22:54,499 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,499 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,499 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,626 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,626 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,627 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent2_ep_50_55_0a5d30af8c72c85192e9.png with policy now
+2024-04-04 08:22:54,627 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,627 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,627 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,753 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,754 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent3_ep_50_56_e6ae77601afd1fe8b0d5.png with policy now
+2024-04-04 08:22:54,754 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,754 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,754 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,755 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,896 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:54,896 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:54,897 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent4_ep_50_57_d4be13122d40965c9ba7.png with policy now
+2024-04-04 08:22:54,897 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:54,897 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:54,897 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:54,906 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:54,906 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:54,906 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/out take_pred2_case1_ep_50_52_08f3016fd83ea04b8143.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/out take_pred1_case1_ep_50_51_e5d184b6df920f739068.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent3_ep_50_56_e6ae77601afd1fe8b0d5.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent2_ep_50_55_0a5d30af8c72c85192e9.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent4_ep_50_57_d4be13122d40965c9ba7.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent1_ep_50_54_8b38f70afe27a3490a50.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent0_ep_50_53_afe77a3505a8d1f77007.png
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images
+2024-04-04 08:22:54,907 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media
+2024-04-04 08:22:54,942 INFO    wandb-upload_0:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/2eqy57i3-media/images/out take_pred1_case1_ep_50_51_e5d184b6df920f739068.png
+2024-04-04 08:22:55,032 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,032 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,032 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/overlap ratio - l2_agent5_ep_50_58_a825b294d6f5da381319.png with policy now
+2024-04-04 08:22:55,033 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,033 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,033 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,107 INFO    wandb-upload_2:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/2f5yvba5-media/images/overlap ratio - l2_agent0_ep_50_53_afe77a3505a8d1f77007.png
+2024-04-04 08:22:55,149 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,149 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,150 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/avg dist : avg_move_ep_50_59_a820b48c7371ecba0760.png with policy now
+2024-04-04 08:22:55,150 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,150 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,150 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,168 INFO    wandb-upload_1:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/8sy14j39-media/images/out take_pred2_case1_ep_50_52_08f3016fd83ea04b8143.png
+2024-04-04 08:22:55,220 INFO    wandb-upload_3:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/r939qsi3-media/images/overlap ratio - l2_agent1_ep_50_54_8b38f70afe27a3490a50.png
+2024-04-04 08:22:55,276 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,276 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,276 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/min move for the avg distance_ep_50_60_13d05a71fae4afd6682a.png with policy now
+2024-04-04 08:22:55,276 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,276 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,277 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,343 INFO    wandb-upload_4:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/it3ciq5k-media/images/overlap ratio - l2_agent2_ep_50_55_0a5d30af8c72c85192e9.png
+2024-04-04 08:22:55,400 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,401 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,401 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/min_dist : avg_tag_ep_50_61_7c22b43cc562204d49f9.png with policy now
+2024-04-04 08:22:55,401 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,401 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,402 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,404 INFO    wandb-upload_5:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/6nqz59fr-media/images/overlap ratio - l2_agent3_ep_50_56_e6ae77601afd1fe8b0d5.png
+2024-04-04 08:22:55,520 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,521 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/avg_dist : avg_tag_ep_50_62_397c2114a56174ca22b4.png with policy now
+2024-04-04 08:22:55,521 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,521 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,521 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,522 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,561 INFO    wandb-upload_6:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/cixcj5xm-media/images/overlap ratio - l2_agent4_ep_50_57_d4be13122d40965c9ba7.png
+2024-04-04 08:22:55,651 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,651 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,652 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/pred1_agent_min dist : action_ep_50_63_bc4b49e49458f7995464.png with policy now
+2024-04-04 08:22:55,652 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,652 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,652 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,684 INFO    wandb-upload_0:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/40jsqt9w-media/images/overlap ratio - l2_agent5_ep_50_58_a825b294d6f5da381319.png
+2024-04-04 08:22:55,748 INFO    wandb-upload_7:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/w2mwxz23-media/images/avg dist : avg_move_ep_50_59_a820b48c7371ecba0760.png
+2024-04-04 08:22:55,777 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,777 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,777 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/pred2_agent_min dist : action_ep_50_64_c01982737894ad76b24c.png with policy now
+2024-04-04 08:22:55,778 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,778 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,778 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,906 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:55,907 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:55,907 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/pred1_agent_avg dist : action_ep_50_65_c1cd300517ac1f348d58.png with policy now
+2024-04-04 08:22:55,907 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:55,908 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:55,908 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:55,910 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:55,911 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/avg dist : avg_move_ep_50_59_a820b48c7371ecba0760.png
+2024-04-04 08:22:55,911 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/pred2_agent_min dist : action_ep_50_64_c01982737894ad76b24c.png
+2024-04-04 08:22:55,911 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/overlap ratio - l2_agent5_ep_50_58_a825b294d6f5da381319.png
+2024-04-04 08:22:55,911 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/pred1_agent_min dist : action_ep_50_63_bc4b49e49458f7995464.png
+2024-04-04 08:22:55,912 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/avg_dist : avg_tag_ep_50_62_397c2114a56174ca22b4.png
+2024-04-04 08:22:55,912 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/pred1_agent_avg dist : action_ep_50_65_c1cd300517ac1f348d58.png
+2024-04-04 08:22:55,912 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/min move for the avg distance_ep_50_60_13d05a71fae4afd6682a.png
+2024-04-04 08:22:55,912 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/min_dist : avg_tag_ep_50_61_7c22b43cc562204d49f9.png
+2024-04-04 08:22:55,912 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images
+2024-04-04 08:22:55,916 INFO    wandb-upload_1:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/5b1i3je3-media/images/min move for the avg distance_ep_50_60_13d05a71fae4afd6682a.png
+2024-04-04 08:22:56,012 INFO    wandb-upload_3:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/bs4y5dh3-media/images/min_dist : avg_tag_ep_50_61_7c22b43cc562204d49f9.png
+2024-04-04 08:22:56,033 DEBUG   SenderThread:72216 [sender.py:send():379] send: files
+2024-04-04 08:22:56,033 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:56,033 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file media/images/pred2_agent_avg dist : action_ep_50_66_2e345dc96e2c80ec2446.png with policy now
+2024-04-04 08:22:56,035 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:56,035 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:56,035 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:56,092 INFO    wandb-upload_2:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/bh1aurj7-media/images/out take_pred1_case1_ep_50_51_e5d184b6df920f739068.png
+2024-04-04 08:22:56,138 INFO    wandb-upload_5:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/7lyw3xbh-media/images/avg_dist : avg_tag_ep_50_62_397c2114a56174ca22b4.png
+2024-04-04 08:22:56,201 INFO    wandb-upload_4:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/6exd8bim-media/images/overlap ratio - l2_agent1_ep_50_54_8b38f70afe27a3490a50.png
+2024-04-04 08:22:56,316 INFO    wandb-upload_6:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/d9pck8qy-media/images/overlap ratio - l2_agent0_ep_50_53_afe77a3505a8d1f77007.png
+2024-04-04 08:22:56,417 INFO    wandb-upload_9:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/ir4qkduc-media/images/pred2_agent_min dist : action_ep_50_64_c01982737894ad76b24c.png
+2024-04-04 08:22:56,421 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:22:56,421 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:22:56,445 INFO    wandb-upload_8:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/tpeske5y-media/images/pred1_agent_min dist : action_ep_50_63_bc4b49e49458f7995464.png
+2024-04-04 08:22:56,510 INFO    wandb-upload_7:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/lqydu5al-media/images/overlap ratio - l2_agent3_ep_50_56_e6ae77601afd1fe8b0d5.png
+2024-04-04 08:22:56,562 INFO    wandb-upload_13:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/32ovk82x-media/images/min move for the avg distance_ep_50_60_13d05a71fae4afd6682a.png
+2024-04-04 08:22:56,634 INFO    wandb-upload_12:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/q0ziw0w3-media/images/overlap ratio - l2_agent5_ep_50_58_a825b294d6f5da381319.png
+2024-04-04 08:22:56,659 INFO    wandb-upload_10:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/u05scw73-media/images/pred1_agent_avg dist : action_ep_50_65_c1cd300517ac1f348d58.png
+2024-04-04 08:22:56,733 INFO    wandb-upload_3:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/rlu5tep5-media/images/overlap ratio - l2_agent4_ep_50_57_d4be13122d40965c9ba7.png
+2024-04-04 08:22:56,733 INFO    wandb-upload_0:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/jnt2oc82-media/images/out take_pred2_case1_ep_50_52_08f3016fd83ea04b8143.png
+2024-04-04 08:22:56,744 INFO    wandb-upload_14:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/wbvtqzd4-media/images/pred2_agent_avg dist : action_ep_50_66_2e345dc96e2c80ec2446.png
+2024-04-04 08:22:56,749 INFO    wandb-upload_11:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/j37jhwqi-media/images/avg dist : avg_move_ep_50_59_a820b48c7371ecba0760.png
+2024-04-04 08:22:56,782 INFO    wandb-upload_1:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/mm67tzz5-media/images/overlap ratio - l2_agent2_ep_50_55_0a5d30af8c72c85192e9.png
+2024-04-04 08:22:56,805 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:56,805 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:56,805 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:56,806 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:56,905 INFO    wandb-upload_2:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/u72v5gfw-media/images/avg_dist : avg_tag_ep_50_62_397c2114a56174ca22b4.png
+2024-04-04 08:22:56,914 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:56,915 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:56,915 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images/pred2_agent_avg dist : action_ep_50_66_2e345dc96e2c80ec2446.png
+2024-04-04 08:22:56,915 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/media/images
+2024-04-04 08:22:57,108 INFO    wandb-upload_4:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/f5lvsll5-media/images/min_dist : avg_tag_ep_50_61_7c22b43cc562204d49f9.png
+2024-04-04 08:22:57,175 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:57,177 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:57,177 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:57,178 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:57,237 INFO    wandb-upload_6:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/fkpx6wrd-media/images/pred2_agent_min dist : action_ep_50_64_c01982737894ad76b24c.png
+2024-04-04 08:22:57,281 INFO    wandb-upload_5:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/338hzqg6-media/images/pred1_agent_min dist : action_ep_50_63_bc4b49e49458f7995464.png
+2024-04-04 08:22:57,382 INFO    wandb-upload_9:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/y9qje27q-media/images/pred1_agent_avg dist : action_ep_50_65_c1cd300517ac1f348d58.png
+2024-04-04 08:22:57,574 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:57,574 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:57,574 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:57,575 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:57,646 INFO    wandb-upload_8:72216 [upload_job.py:push():131] Uploaded file /var/folders/1b/dgkwjr_j1t99n4kqs8hhbdqh0000gn/T/tmp2djvgtwcwandb/4motn0et-media/images/pred2_agent_avg dist : action_ep_50_66_2e345dc96e2c80ec2446.png
+2024-04-04 08:22:57,919 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:57,951 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:57,953 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:57,953 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:57,956 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:58,359 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:58,359 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:58,359 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:58,360 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:58,752 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:58,753 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:58,753 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:58,753 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:58,923 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:58,923 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:22:59,134 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:22:59,134 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:59,135 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:59,135 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:59,135 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:59,582 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:59,583 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:59,583 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:59,583 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:22:59,928 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:22:59,958 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:22:59,959 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:22:59,959 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:22:59,960 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:00,338 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:00,338 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:00,338 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:00,338 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:00,713 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:00,714 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:00,714 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:00,714 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:00,928 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:00,928 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:01,079 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:01,079 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:01,079 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:01,080 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:01,465 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:01,465 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:01,466 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:01,466 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:01,834 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:01,835 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:01,835 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:01,838 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:01,934 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:02,217 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:02,218 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:02,218 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:02,219 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:02,649 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:02,650 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:02,650 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:02,650 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:02,937 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:02,937 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:03,037 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:03,037 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:03,037 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:03,038 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:03,398 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:03,399 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:03,399 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:03,399 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:03,800 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:03,800 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:03,800 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:03,801 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:03,939 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:04,187 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:04,187 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:04,188 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:04,188 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:04,188 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:04,567 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:04,568 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:04,568 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:04,568 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:04,944 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:04,945 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:04,945 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:04,945 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:04,946 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:04,946 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:05,333 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:05,334 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:05,334 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:05,335 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:05,747 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:05,747 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:05,747 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:05,748 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:05,950 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:06,144 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:06,145 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:06,145 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:06,146 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:06,514 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:06,515 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:06,515 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:06,515 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:06,867 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:06,867 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:06,868 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:06,868 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:06,952 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:06,952 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:07,229 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:07,230 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:07,230 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:07,230 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:07,595 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:07,595 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:07,595 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:07,596 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:07,953 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:07,977 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:07,978 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:07,978 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:07,979 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:08,348 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:08,349 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:08,349 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:08,349 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:08,720 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:08,721 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:08,721 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:08,721 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:08,812 DEBUG   SystemMonitor:72216 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2024-04-04 08:23:08,813 DEBUG   SenderThread:72216 [sender.py:send():379] send: telemetry
+2024-04-04 08:23:08,813 DEBUG   SenderThread:72216 [sender.py:send():379] send: stats
+2024-04-04 08:23:08,955 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:08,955 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:09,070 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:09,070 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:09,070 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:09,071 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:09,455 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:09,455 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:09,685 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:09,685 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:09,685 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:09,833 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:09,833 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:09,833 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:09,834 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:09,956 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/config.yaml
+2024-04-04 08:23:09,956 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:10,188 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:10,188 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:10,188 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:10,189 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:10,543 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:10,544 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:10,544 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:10,544 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:10,903 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:10,904 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:10,904 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:10,905 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:10,957 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:10,958 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:11,302 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:11,303 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:11,303 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:11,304 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:11,425 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:23:11,426 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:23:11,682 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:11,682 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:11,682 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:11,684 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:11,963 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:12,047 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:12,048 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:12,048 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:12,048 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:12,404 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:12,405 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:12,405 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:12,405 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:12,760 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:12,761 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:12,761 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:12,761 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:12,965 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:12,965 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:13,121 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:13,122 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:13,122 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:13,122 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:13,473 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:13,474 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:13,474 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:13,474 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:13,845 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:13,846 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:13,846 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:13,847 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:13,970 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:14,207 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:14,208 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:14,208 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:14,208 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:14,576 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:14,576 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:14,576 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:14,577 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:14,938 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:14,938 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:14,939 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:14,939 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:14,939 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:14,976 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:14,976 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:15,291 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:15,292 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:15,292 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:15,292 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:15,641 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:15,641 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:15,641 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:15,642 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:15,981 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:15,988 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:15,988 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:15,988 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:15,989 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:16,337 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:16,337 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:16,337 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:16,338 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:16,693 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:16,694 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:16,694 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:16,694 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:16,984 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:16,985 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:17,048 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:17,049 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:17,049 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:17,050 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:17,415 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:17,415 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:17,415 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:17,416 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:17,769 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:17,769 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:17,770 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:17,770 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:17,990 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:18,116 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:18,117 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:18,117 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:18,117 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:18,461 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:18,461 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:18,461 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:18,462 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:18,812 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:18,812 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:18,812 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:18,813 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:18,995 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:18,995 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:19,154 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:19,155 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:19,155 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:19,155 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:19,507 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:19,507 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:19,507 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:19,508 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:19,884 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:19,885 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:19,885 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:19,885 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:20,001 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:20,267 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:20,267 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:20,267 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:20,267 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:20,268 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:20,635 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:20,636 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:20,636 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:20,636 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:20,985 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:20,985 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:20,985 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:20,986 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:21,002 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:21,004 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:21,333 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:21,334 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:21,334 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:21,334 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:21,681 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:21,681 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:21,681 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:21,682 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:22,007 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:22,026 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:22,027 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:22,027 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:22,027 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:22,375 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:22,376 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:22,376 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:22,376 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:22,758 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:22,759 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:22,759 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:22,759 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:23,013 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:23,014 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:23,177 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:23,177 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:23,177 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:23,178 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:23,797 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:23,798 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:23,798 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:23,798 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:24,017 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:24,164 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:24,164 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:24,164 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:24,164 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:24,519 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:24,520 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:24,520 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:24,520 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:24,873 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:24,874 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:24,874 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:24,874 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:25,023 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:25,023 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:25,234 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:25,235 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:25,235 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:25,235 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:25,540 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:25,586 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:25,586 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:25,586 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:25,586 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:25,950 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:25,951 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:25,951 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:25,951 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:26,028 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:26,321 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:26,322 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:26,322 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:26,322 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:26,431 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:23:26,431 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:23:26,690 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:26,714 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:26,714 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:26,714 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:27,032 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:27,032 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:27,125 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:27,126 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:27,126 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:27,127 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:27,477 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:27,478 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:27,478 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:27,479 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:27,835 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:27,836 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:27,836 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:27,836 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:28,033 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:28,202 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:28,202 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:28,202 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:28,203 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:28,557 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:28,558 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:28,558 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:28,558 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:28,930 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:28,931 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:28,931 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:28,932 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:29,038 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:29,039 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:29,306 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:29,307 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:29,307 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:29,308 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:29,678 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:29,679 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:29,679 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:29,679 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:30,042 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:30,049 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:30,050 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:30,050 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:30,050 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:30,409 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:30,410 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:30,410 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:30,411 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:30,768 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:30,768 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:30,768 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:30,768 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:30,769 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:31,049 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:31,049 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:31,224 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:31,224 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:31,225 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:31,225 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:31,674 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:31,674 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:31,674 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:31,675 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:32,054 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:32,127 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:32,127 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:32,127 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:32,128 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:32,556 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:32,557 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:32,557 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:32,557 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:32,991 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:32,991 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:32,991 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:32,992 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:33,060 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:33,060 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:33,353 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:33,354 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:33,354 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:33,355 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:33,707 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:33,709 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:33,709 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:33,710 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:33,711 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:33,711 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:33,711 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:33,711 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:34,061 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:34,554 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:34,554 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:34,554 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:34,555 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:35,028 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:35,031 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:35,031 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:35,031 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:35,067 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:35,067 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:35,406 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:35,406 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:35,407 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:35,407 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:35,825 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:35,825 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:35,826 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:35,826 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:35,827 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:36,086 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:36,257 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:36,258 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:36,258 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:36,258 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:36,667 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:36,668 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:36,668 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:36,668 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:37,037 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:37,038 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:37,038 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:37,038 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:37,089 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:37,090 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:37,434 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:37,434 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:37,435 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:37,435 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:37,796 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:37,797 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:37,797 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:37,797 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:38,092 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:38,169 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:38,170 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:38,170 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:38,170 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:38,549 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:38,549 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:38,549 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:38,550 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:38,820 DEBUG   SenderThread:72216 [sender.py:send():379] send: stats
+2024-04-04 08:23:38,971 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:38,972 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:38,972 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:38,973 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:39,097 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:39,098 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:39,337 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:39,337 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:39,337 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:39,338 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:39,700 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:39,700 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:39,700 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:39,701 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:40,079 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:40,080 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:40,080 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:40,080 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:40,102 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:40,437 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:40,438 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:40,438 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:40,439 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:40,800 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:40,801 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:40,801 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:40,802 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:41,107 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:41,107 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:41,174 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:41,174 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:41,175 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:41,175 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:41,175 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:41,436 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:23:41,436 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:23:41,552 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:41,697 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:41,698 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:41,698 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:41,911 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:41,912 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:41,912 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:41,912 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:42,108 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:42,265 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:42,265 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:42,265 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:42,266 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:42,613 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:42,615 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:42,615 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:42,615 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:42,964 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:42,964 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:42,964 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:42,965 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:43,113 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:43,114 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:43,316 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:43,316 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:43,316 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:43,317 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:43,665 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:43,665 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:43,665 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:43,667 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:44,024 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:44,025 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:44,025 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:44,026 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:44,117 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:44,391 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:44,391 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:44,392 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:44,392 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:44,749 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:44,750 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:44,750 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:44,750 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:45,092 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:45,092 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:45,092 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:45,093 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:45,122 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:45,122 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:45,437 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:45,437 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:45,437 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:45,438 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:45,781 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:45,782 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:45,782 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:45,783 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:46,126 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:46,127 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:46,127 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:46,127 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:46,128 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:46,473 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:46,473 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:46,473 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:46,473 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:46,474 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:46,826 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:46,827 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:46,828 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:46,828 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:47,129 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:47,130 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:47,195 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:47,196 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:47,196 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:47,197 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:47,601 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:47,601 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:47,601 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:47,602 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:47,962 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:47,963 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:47,963 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:47,963 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:48,134 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:48,352 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:48,352 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:48,352 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:48,352 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:48,755 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:48,755 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:48,755 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:48,756 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:49,130 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:49,130 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:49,130 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:49,131 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:49,136 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:49,136 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:49,482 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:49,483 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:49,483 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:49,483 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:49,844 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:49,845 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:49,846 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:49,846 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:50,142 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:50,236 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:50,237 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:50,237 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:50,237 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:50,627 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:50,628 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:50,628 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:50,628 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:50,985 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:50,986 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:50,986 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:50,987 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:51,147 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:51,148 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:51,335 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:51,335 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:51,335 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:51,335 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:51,481 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:51,685 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:51,686 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:51,686 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:51,686 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:52,036 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:52,037 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:52,037 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:52,037 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:52,149 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:52,383 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:52,384 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:52,384 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:52,385 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:52,772 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:52,773 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:52,773 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:52,773 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:53,131 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:53,132 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:53,132 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:53,133 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:53,154 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:53,154 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:53,491 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:53,491 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:53,491 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:53,492 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:53,838 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:53,838 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:53,838 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:53,839 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:54,159 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:54,184 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:54,185 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:54,185 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:54,185 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:54,530 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:54,530 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:54,531 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:54,531 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:54,880 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:54,881 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:54,881 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:54,882 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:55,161 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:55,162 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:55,303 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:55,304 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:55,304 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:55,304 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:55,684 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:55,687 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:55,687 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:55,688 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:56,051 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:56,052 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:56,052 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:56,053 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:56,167 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:56,424 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:56,424 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:56,424 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:56,425 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:56,441 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: stop_status
+2024-04-04 08:23:56,441 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: stop_status
+2024-04-04 08:23:56,678 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:23:56,805 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:56,806 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:56,806 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:56,806 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:57,156 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:57,156 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:57,156 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:57,156 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:57,172 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:57,172 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:57,587 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:57,588 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:57,588 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:57,589 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:57,960 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:57,961 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:57,961 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:57,961 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:58,175 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:58,318 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:58,319 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:58,319 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:58,320 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:58,683 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:58,684 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:58,684 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:58,685 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:59,049 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:59,050 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:59,050 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:59,050 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:59,177 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:23:59,177 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:23:59,416 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:59,417 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:59,417 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:59,417 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:23:59,801 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:23:59,802 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:23:59,802 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:23:59,802 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:00,173 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:00,174 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:00,174 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:00,174 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:00,183 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:00,531 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:00,532 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:00,532 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:00,532 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:00,907 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:00,908 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:00,908 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:00,908 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:01,184 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:01,185 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:24:01,351 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:01,352 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:01,352 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:01,352 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:01,738 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:01,738 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:24:01,739 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:01,739 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:01,739 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:02,112 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:02,112 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:02,112 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:02,113 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:02,190 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:02,511 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:02,511 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:02,511 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:02,512 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:02,888 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:02,889 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:02,889 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:02,889 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:03,190 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:03,190 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:24:03,252 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:03,253 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:03,253 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:03,253 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:03,613 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:03,613 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:03,613 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:03,614 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:03,972 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:03,973 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:03,973 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:03,973 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:04,196 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:04,369 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:04,370 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:04,370 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:04,370 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:04,795 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:04,795 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:04,796 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:04,796 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:05,169 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:05,170 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:05,170 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:05,170 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:05,202 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:05,202 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:24:05,532 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:05,532 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:05,532 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:05,533 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:05,922 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:05,923 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:05,923 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:05,923 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:06,206 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:06,408 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:06,409 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:06,409 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:06,410 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:06,767 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:06,768 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: status_report
+2024-04-04 08:24:06,768 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:06,768 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:06,769 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:07,145 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:07,146 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:07,146 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:07,147 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:07,211 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:07,212 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:24:07,515 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:07,516 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:07,516 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:07,516 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:07,906 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:07,906 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:07,907 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:07,907 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:08,216 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:08,328 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:08,329 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:08,329 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:08,329 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:08,797 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:08,797 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:08,797 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:08,798 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:08,821 DEBUG   SenderThread:72216 [sender.py:send():379] send: stats
+2024-04-04 08:24:09,175 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:09,175 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:09,175 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:09,176 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:09,222 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json
+2024-04-04 08:24:09,222 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/output.log
+2024-04-04 08:24:09,529 DEBUG   HandlerThread:72216 [handler.py:handle_request():144] handle_request: partial_history
+2024-04-04 08:24:09,530 DEBUG   SenderThread:72216 [sender.py:send():379] send: history
+2024-04-04 08:24:09,530 DEBUG   SenderThread:72216 [sender.py:send_request():406] send_request: summary_record
+2024-04-04 08:24:09,530 INFO    SenderThread:72216 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2024-04-04 08:24:10,229 INFO    Thread-12 :72216 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/junhyeonbae/PycharmProjects/MADQN/Model_analysis/wandb/run-20240404_082208-ew3cvhnx/files/wandb-summary.json

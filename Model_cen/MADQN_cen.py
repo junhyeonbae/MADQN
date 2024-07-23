@@ -116,8 +116,8 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             next_observations = torch.tensor(next_observations)
             observations = torch.tensor(observations)
 
-            next_observations = next_observations.reshape(-1,3)
-            observations = observations.reshape(-1,3)
+            next_observations = next_observations.reshape(-1,args.dim_feature)
+            observations = observations.reshape(-1,args.dim_feature)
 
 
             # to device

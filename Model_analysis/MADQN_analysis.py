@@ -208,10 +208,10 @@ def find_prey_positions(prey_num_set, prey_deque):
     num_set = prey_num_set
     positions = {number: [] for number in num_set}
 
+    # 각각의 prey 수가 담겨있는 위치가 어디인지 딕셔너리에 넣는 작업
     for agent_idx, deque_values in prey_deque.items():
-        for idx, value in enumerate(deque_values):
-            if value in num_set:
-                positions[value].append((agent_idx, idx))
+        for idx, prey in enumerate(deque_values):
+            positions[prey].append((agent_idx, idx))
 
     return positions
 
@@ -230,8 +230,146 @@ def extract_values_based_on_positions(prey_set,positions_dict, l2_before, l2_deq
 
     return results
 
+def extrack_plot_outtake(prey_deque, shared_mean):
 
-# 예시 사용 및 나머지 클래스 정의 생략
+    #prey 수의 집합 set
+    num_set = set()
+    for deque_values in prey_deque.values():
+        num_set.update(deque_values)
+
+    # 특정 prey수가 prey_deque 의 어떤 위치에 있는지 positions 에 저장
+    pos_dict = {number: [] for number in num_set}
+
+    # 각각의 prey 수가 담겨있는 위치가 어디인지 딕셔너리에 넣는 작업
+    for agent_idx, deque_values in prey_deque.items():
+        for idx, prey in enumerate(deque_values):
+            pos_dict[prey].append((agent_idx, idx))
+
+    # 결과를 저장할 딕셔너리
+    results = []
+
+    # pos_dict을 이용하여 결과 수집
+    for prey, pos_list in pos_dict.items(): #pos_dict 에 있는 키와 쌍을 반환, 즉 number에는 숫자가 pop_list 에는 각 숫자가 있는 position 이 찍힌다.
+        for pos in pos_list:
+            x, y = pos #agent_idx 에는 position의 x축 값이, idx 에는 y 값이 찍힌다.
+            corresponding_shared_mean = shared_mean[x][y]
+
+            results.append((prey, corresponding_shared_mean))  # 숫자별로 (x, y) 저장
+
+    return results
+
+
+
+def from_semi_shared(semi_shared, pos, view_range):
+    x_start = pos[1] + args.predator1_view_range -2
+    y_start = pos[0] + args.predator1_view_range -2
+
+
+    x_range = int(view_range)
+    y_range = int(view_range)
+
+    semi_shared = semi_shared[x_start - (x_range -1):x_start + (x_range+1), y_start - (y_range -1): y_start + (y_range+1)]
+
+    return semi_shared
+
+
+def to_semi_shared(semi_shared , pos, view_range):
+
+    x_start = pos[1] + args.predator1_view_range - 2
+    y_start = pos[0] + args.predator1_view_range - 2
+
+    x_range = int(view_range)
+    y_range = int(view_range)
+
+
+    semi_shared[x_start - (x_range-1) :x_start + (x_range+1), y_start - (y_range - 1): y_start + (y_range+1)] += 1
+
+    return semi_shared
+
+
+def overlap_tiles(observation_temp):
+    prey_pos = np.argwhere(observation_temp[:, :] >= 2)
+
+    return prey_pos
+
+
+#predator1 이 다른 predator1 과 predator2와 만나는 타일의 위치를 뽑는 함수
+def coor_list_pred1(overlap_pos_list): #첫번째는 본인이고,그 뒤로 n_predator1 -1 개의 predator1, n_predator2개의 predator2
+
+    #주인공 predator1 과 다른 predator1 들이 만나는 타일의 위치
+    semi_shared_shape = (args.map_size + (predator1_view_range-2)*2, args.map_size + (predator1_view_range-2)*2)
+    semi_shared = np.zeros(semi_shared_shape)
+
+    for i in range(n_predator1-1): #처음 n_predator1 -1 개의 predator1에 대해 semi_shared 에 +1을 하여 기록한다.
+        semi_shared = to_semi_shared(semi_shared , overlap_pos_list[i+1],predator1_view_range)
+
+    with_pred1 = from_semi_shared(semi_shared,overlap_pos_list[0],predator1_view_range) #주인공 predator1가 보는 것을 가져온다.
+    overlap_tiles_pred1 = np.argwhere(with_pred1[:, :] >= 1)#overlap_tiles 에 현재 주인공 predator1와 다른 predator1가 한번이라도 겹친 부분의 위치값들이 기록되어있다.
+
+
+    # 주인공 predator1 과  predator2 들이 만나는 타일의 위치
+    semi_shared = np.zeros(semi_shared_shape)
+
+    for i in range(n_predator2):  # 처음 n_predator2 개의 predator2에 대해 semi_shared 에 +1을 하여 기록한다.
+        semi_shared = to_semi_shared(semi_shared, overlap_pos_list[i + n_predator1], predator2_view_range)
+
+    with_pred2 = from_semi_shared(semi_shared, overlap_pos_list[0], predator1_view_range)  # 주인공 predator1가 보는 것을 가져온다.
+    overlap_tiles_pred2 = np.argwhere(with_pred2[:, :] >= 1)  # overlap_tiles 에 현재 주인공 predator1와 다른 predator2가 한번이라도 겹친 부분의 위치값들이 기록되어있다.
+
+    return overlap_tiles_pred1, overlap_tiles_pred2
+
+
+#predator1 이 다른 predator1 과 predator2와 만나는 타일의 위치를 뽑는 함수
+def coor_list_pred2(overlap_pos_list): #첫번째는 predator2 본인이고,그 뒤로 n_predator1 개의 predator1, n_predator2 - 1 개의 predator2
+
+    #주인공 predator2 과 다른 predator1 들이 만나는 타일의 위치
+    semi_shared_shape = (args.map_size + (predator1_view_range-2)*2, args.map_size + (predator1_view_range-2)*2)
+    semi_shared = np.zeros(semi_shared_shape)
+
+    for i in range(n_predator1): #처음 n_predator1 -1 개의 predator1에 대해 semi_shared 에 +1을 하여 기록한다.
+        semi_shared = to_semi_shared(semi_shared , overlap_pos_list[i+1],predator1_view_range)
+
+    with_pred1 = from_semi_shared(semi_shared,overlap_pos_list[0],predator2_view_range) #주인공 predator2가 보는 것을 가져온다.
+    overlap_tiles_pred1 = np.argwhere(with_pred1[:, :] >= 1)#overlap_tiles 에 현재 주인공 predator1와 다른 predator1가 한번이라도 겹친 부분의 위치값들이 기록되어있다.
+
+
+    # 주인공 predator1 과  predator2 들이 만나는 타일의 위치
+    semi_shared = np.zeros(semi_shared_shape) #초기화
+
+    for i in range(n_predator2-1):  # 처음 n_predator2 개의 predator2에 대해 semi_shared 에 +1을 하여 기록한다.
+        semi_shared = to_semi_shared(semi_shared, overlap_pos_list[i + n_predator1 + 1], predator2_view_range)
+
+    with_pred2 = from_semi_shared(semi_shared, overlap_pos_list[0], predator2_view_range)  # 주인공 predator1가 보는 것을 가져온다.
+    overlap_tiles_pred2 = np.argwhere(with_pred2[:, :] >= 1)  # overlap_tiles 에 현재 주인공 predator1와 다른 predator2가 한번이라도 겹친 부분의 위치값들이 기록되어있다.
+
+    return overlap_tiles_pred1, overlap_tiles_pred2
+
+
+def intake_sum(book, after_gnn, overlap_tiles):
+
+    sum_of_squared_differences = 0
+
+    for tiles in overlap_tiles: #tiles에는 각 픽셀의 좌표값들 들어있음
+        # 각 위치에서 book과 after_gnn의 차이를 계산.
+        difference = book[tiles[0], tiles[1]] - after_gnn[tiles[0], tiles[1]]
+
+        sum_of_squared_differences += torch.sum(difference ** 2)
+
+
+    return sum_of_squared_differences
+
+
+def intake_inner(book, after_gnn, overlap_tiles):
+
+    sum_of_inner_product = 0
+
+    for tiles in overlap_tiles:  # tiles에는 각 픽셀의 좌표값들 들어있음
+        # 각 위치에서 book과 after_gnn의 차이를 계산.
+        mul = book[tiles[0], tiles[1]] * after_gnn[tiles[0], tiles[1]]
+
+        sum_of_inner_product += torch.sum(mul)
+
+    return sum_of_inner_product
 
 
 predator1_adj = king_adj(predator1_view_range*2)
@@ -334,6 +472,10 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             self.prey_number_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
 
 
+        self.shared_mean_deque_dict = {}
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.shared_mean_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
         self.l2_before_outtake_deque_dict = {}
         for agent_idx in range(n_predator1 + n_predator2):
             self.l2_before_outtake_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
@@ -359,6 +501,30 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             self.intake_overlap_with_pred2[agent_idx] = deque(maxlen=args.deque_len)
 
 
+
+        self.intake_sum_with_pred1_deque_dict = {} #수정한 Intake 담을 큐
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.intake_sum_with_pred1_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
+        self.intake_sum_with_pred2_deque_dict = {}
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.intake_sum_with_pred2_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
+        self.intake_inner_with_pred1_deque_dict = {}  # 수정한 Intake 담을 큐
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.intake_inner_with_pred1_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
+        self.intake_inner_with_pred2_deque_dict = {}  # 수정한 Intake 담을 큐
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.intake_inner_with_pred2_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
+        self.tiles_number_with_pred1_deque_dict = {}  # 수정한 Intake 담을 큐
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.tiles_number_with_pred1_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
+
+        self.tiles_number_with_pred2_deque_dict = {}  # 수정한 Intake 담을 큐
+        for agent_idx in range(n_predator1 + n_predator2):
+            self.tiles_number_with_pred2_deque_dict[agent_idx] = deque(maxlen=args.deque_len)
 
         #model
         self.gdqns = [G_DQN(self.dim_act, self.predator1_obs).to(self.device) for _ in range(self.n_predator1)] + [
@@ -476,7 +642,11 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
     def concat_dist(self, dist_list):
 
+
+
         self.summation_team_dist[self.team_idx] = np.concatenate((self.summation_team_dist[self.team_idx],dist_list))
+        #self.summation_team_dist[self.team_idx].append(dist_list)
+        print("a")
 
     def reset_summation_team_dist(self):
         self.summation_team_dist[0] = np.array([], dtype=float)
@@ -581,7 +751,7 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         #     pass
 
         book = self.from_guestbook()
-        q_value, shared_info, l2_before , l2_outtake, l2_intake = self.gdqn(torch.tensor(state).to(self.device), self.adj.to(self.device), book.to(self.device))
+        q_value, shared_info, l2_before , l2_outtake, shared_sum, l2_intake , after_gnn = self.gdqn(torch.tensor(state).to(self.device), self.adj.to(self.device), book.to(self.device))
 
         #self.to_guestbook(shared_info.to('cpu'))
         self.epsilon *= args.eps_decay
@@ -590,8 +760,8 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         if np.random.random() < self.epsilon:
             print('random')
             # return random.randint(0, self.dim_act - 1), book
-            return random.randint(0, dim_act-1), book, shared_info, l2_before,  l2_outtake, l2_intake
-        return torch.argmax(q_value).item(), book, shared_info, l2_before, l2_outtake,  l2_intake
+            return random.randint(0, dim_act-1), book, shared_info, l2_before,  l2_outtake, shared_sum, l2_intake ,after_gnn
+        return torch.argmax(q_value).item(), book, shared_info, l2_before, l2_outtake, shared_sum, l2_intake, after_gnn
 
         try:
             torch.cuda.empty_cache()
@@ -705,9 +875,9 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
             '#e4717a', '#00ffff', '#a4c639', '#f4c2c2', '#915c83'
         ]
 
-        ##############################################################################
-        #################################out take#####################################
-        ##############################################################################
+        ######################################################################################
+        #################################out take 수정 이전#####################################
+        ######################################################################################
 
         ################################
         ############case1###############
@@ -742,70 +912,109 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
         ###predator1 team###
         ####################
 
-        prey_number_deque_dict_pred1 = {agent_idx: self.prey_number_deque_dict[agent_idx] for agent_idx in
-                                  range(n_predator1)}
-
-        l2_before_outtake_deque_dict_pred1 = {agent_idx: self.l2_before_outtake_deque_dict[agent_idx] for agent_idx in
-                                        range(n_predator1)}
-
-        l2_outtake_deque_dict_pred1 = {agent_idx: self.l2_outtake_deque_dict[agent_idx] for agent_idx in
-                                              range(n_predator1)}
-
-
-        num_set = prey_num_set(prey_number_deque_dict_pred1)
-        positions_dict = find_prey_positions(num_set, prey_number_deque_dict_pred1)
-        results = extract_values_based_on_positions(num_set, positions_dict, l2_before_outtake_deque_dict_pred1,
-                                                    l2_outtake_deque_dict_pred1)
-
-        # 결과를 prey 에 따라 plotting
-        plt.figure(figsize=(10, 6))
-
-        for prey, coords in results.items():
-            if coords:  # 좌표가 있는 경우에만
-                x, y = zip(*coords)  # 숫자와 해당 값으로 분리
-                plt.plot(x, y, 'o-', color=colors[prey], label=f'prey {prey}')  # 점과 선으로 연결
-
-        plt.xlabel('Ot')
-        plt.ylabel('L2')
-        plt.title('out take_pred1_case1')
-        plt.legend()
-
-        wandb.log({"out take_pred1_case1_ep_{}".format(ep): wandb.Image(plt)})
-
-        plt.close()  # 현재 그림 닫기
+        # prey_number_deque_dict_pred1 = {agent_idx: self.prey_number_deque_dict[agent_idx] for agent_idx in
+        #                           range(n_predator1)}
+        #
+        # l2_before_outtake_deque_dict_pred1 = {agent_idx: self.l2_before_outtake_deque_dict[agent_idx] for agent_idx in
+        #                                 range(n_predator1)}
+        #
+        # l2_outtake_deque_dict_pred1 = {agent_idx: self.l2_outtake_deque_dict[agent_idx] for agent_idx in
+        #                                       range(n_predator1)}
+        #
+        #
+        # num_set = prey_num_set(prey_number_deque_dict_pred1)
+        # positions_dict = find_prey_positions(num_set, prey_number_deque_dict_pred1)
+        # results = extract_values_based_on_positions(num_set, positions_dict, l2_before_outtake_deque_dict_pred1,
+        #                                             l2_outtake_deque_dict_pred1)
+        #
+        # # 결과를 prey 에 따라 plotting
+        # plt.figure(figsize=(10, 6))
+        #
+        # for prey, coords in results.items():
+        #     if coords:  # 좌표가 있는 경우에만
+        #         x, y = zip(*coords)  # 숫자와 해당 값으로 분리
+        #         plt.plot(x, y, 'o-', color=colors[prey], label=f'prey {prey}')  # 점과 선으로 연결
+        #
+        # plt.xlabel('Ot')
+        # plt.ylabel('L2')
+        # plt.title('out take_pred1_case1')
+        # plt.legend()
+        #
+        # wandb.log({"out take_pred1_case1_ep_{}".format(ep): wandb.Image(plt)})
+        #
+        # plt.close()  # 현재 그림 닫기
 
         ####################
         ###predator2 team###
         ####################
 
+        # prey_number_deque_dict_pred2 = {agent_idx: self.prey_number_deque_dict[agent_idx] for agent_idx in
+        #                                 range(n_predator1,n_predator1+n_predator2)}
+        #
+        # l2_before_outtake_deque_dict_pred2 = {agent_idx: self.l2_before_outtake_deque_dict[agent_idx] for agent_idx in
+        #                                       range(n_predator1,n_predator1+n_predator2)}
+        #
+        # l2_outtake_deque_dict_pred2 = {agent_idx: self.l2_outtake_deque_dict[agent_idx] for agent_idx in
+        #                                range(n_predator1,n_predator1+n_predator2)}
+        #
+        # num_set = prey_num_set(prey_number_deque_dict_pred2)
+        # positions_dict = find_prey_positions(num_set, prey_number_deque_dict_pred2)
+        # results = extract_values_based_on_positions(num_set, positions_dict, l2_before_outtake_deque_dict_pred2,
+        #                                             l2_outtake_deque_dict_pred2)
+        #
+        # # 결과를 prey 에 따라 plotting
+        # plt.figure(figsize=(10, 6))
+        #
+        # for prey, coords in results.items():
+        #     if coords:  # 좌표가 있는 경우에만
+        #         x, y = zip(*coords)  # 숫자와 해당 값으로 분리
+        #         plt.plot(x, y, 'o-', color=colors[prey], label=f'prey {prey}')  # 점과 선으로 연결
+        #
+        # plt.xlabel('Ot')
+        # plt.ylabel('L2')
+        # plt.title('out take_pred2_case1')
+        # plt.legend()
+        #
+        # wandb.log({"out take_pred2_case1_ep_{}".format(ep): wandb.Image(plt)})
+        #
+        # plt.close()  # 현재 그림 닫기
+
+        ########################################################################################
+        #################################out take 수정 version###################################
+        ########################################################################################
+
+
+        #predtor1 에 대한 정보만 가져옴
+        prey_number_deque_dict_pred1 = {agent_idx: self.prey_number_deque_dict[agent_idx] for agent_idx in
+                                        range(n_predator1)}
         prey_number_deque_dict_pred2 = {agent_idx: self.prey_number_deque_dict[agent_idx] for agent_idx in
-                                        range(n_predator1,n_predator1+n_predator2)}
+                                        range(n_predator1,n_predator1+ n_predator2)}
 
-        l2_before_outtake_deque_dict_pred2 = {agent_idx: self.l2_before_outtake_deque_dict[agent_idx] for agent_idx in
-                                              range(n_predator1,n_predator1+n_predator2)}
+        shared_mean_deque_dict_pred1 = {agent_idx: self.shared_mean_deque_dict[agent_idx] for agent_idx in
+                                       range(n_predator1)}
+        shared_mean_deque_dict_pred2 = {agent_idx: self.shared_mean_deque_dict[agent_idx] for agent_idx in
+                                        range(n_predator1, n_predator1+n_predator2)}
 
-        l2_outtake_deque_dict_pred2 = {agent_idx: self.l2_outtake_deque_dict[agent_idx] for agent_idx in
-                                       range(n_predator1,n_predator1+n_predator2)}
-
-        num_set = prey_num_set(prey_number_deque_dict_pred2)
-        positions_dict = find_prey_positions(num_set, prey_number_deque_dict_pred2)
-        results = extract_values_based_on_positions(num_set, positions_dict, l2_before_outtake_deque_dict_pred2,
-                                                    l2_outtake_deque_dict_pred2)
-
+        #predator1에 대해서 observation 안에 prey의 수의 집합 set을 만든다.
+        results1 = extrack_plot_outtake(prey_number_deque_dict_pred1, shared_mean_deque_dict_pred1)
+        results2 = extrack_plot_outtake(prey_number_deque_dict_pred2, shared_mean_deque_dict_pred2)
         # 결과를 prey 에 따라 plotting
         plt.figure(figsize=(10, 6))
 
-        for prey, coords in results.items():
-            if coords:  # 좌표가 있는 경우에만
-                x, y = zip(*coords)  # 숫자와 해당 값으로 분리
-                plt.plot(x, y, 'o-', color=colors[prey], label=f'prey {prey}')  # 점과 선으로 연결
+        x1, y1 = zip(*results1)
+        plt.scatter(x1, y1, facecolors='none', edgecolors=colors[0], label="predator1")
 
-        plt.xlabel('Ot')
-        plt.ylabel('L2')
-        plt.title('out take_pred2_case1')
+        x2, y2 = zip(*results2)
+        plt.scatter(x2, y2, facecolors='none', edgecolors=colors[1], label="predator2")
+
+
+        plt.xlabel('prey')
+        plt.ylabel('shared_mean')
+        plt.title('out take')
         plt.legend()
+        # plt.show()
 
-        wandb.log({"out take_pred2_case1_ep_{}".format(ep): wandb.Image(plt)})
+        wandb.log({"out take1_ep_{}".format(ep): wandb.Image(plt)})
 
         plt.close()  # 현재 그림 닫기
 
@@ -845,6 +1054,7 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
         #각각의 에이전트에 대해서 그려본다.
         for agent in range(n_predator1+n_predator2):
+
             plt.figure(figsize=(10, 6))
 
             l2_intake= list(self.l2_intake_deque_dict[agent])
@@ -864,17 +1074,71 @@ class MADQN():  # def __init__(self,  dim_act, observation_state):
 
             plt.close()  # 현재 그림 닫기
 
+            # 수정한 intake
+            # intake_sum_with_pred1 = intake_sum(book, after_gnn, overlap_tiles_pred1)
+            # intake_sum_with_pred2 = intake_sum(book, after_gnn, overlap_tiles_pred2)
+            # madqn.intake_sum_with_pred1_deque_dict[idx].append(intake_sum_with_pred1)
+            # madqn.intake_sum_with_pred2_deque_dict[idx].append(intake_sum_with_pred2)
+            #
+            # intake_inner_with_pred1 = intake_inner(book, after_gnn, overlap_tiles_pred1)
+            # intake_inner_with_pred2 = intake_inner(book, after_gnn, overlap_tiles_pred2)
+            # madqn.intake_inner_with_pred1_deque_dict[idx].append(intake_inner_with_pred1)
+            # madqn.intake_inner_with_pred2_deque_dict[idx].append(intake_inner_with_pred2)
+            #
+            # madqn.tiles_number_with_pred1_deque_dict[idx].append(len(overlap_tiles_pred1))
+            # madqn.tiles_number_with_pred2_deque_dict[idx].append(len(overlap_tiles_pred2))
+
+        for agent in range(n_predator1 + n_predator2):
+
+            tiles_num_with_pred1 = list(self.tiles_number_with_pred1_deque_dict[agent])
+            tiles_num_with_pred2 = list(self.tiles_number_with_pred2_deque_dict[agent])
+
+            intake_sum_with_pred1 = list(self.intake_sum_with_pred1_deque_dict[agent])
+            intake_sum_with_pred2 = list(self.intake_sum_with_pred2_deque_dict[agent])
+
+            intake_inner_with_pred1 = list(self.intake_inner_with_pred1_deque_dict[agent])
+            intake_inner_with_pred2 = list(self.intake_inner_with_pred2_deque_dict[agent])
+
+            plt.figure(figsize=(10, 6))
+
+            plt.scatter(tiles_num_with_pred1, intake_sum_with_pred1, facecolors='none', edgecolors=colors[agent],
+                        label='about predator1')
+            plt.scatter(tiles_num_with_pred2, intake_sum_with_pred2, facecolors='none', edgecolors=colors[agent],
+                        label='about predator1')
+
+            plt.title("intake_sum_agent{}_ep_{}".format(agent, ep))
+            plt.xlabel('overlap tiles number')
+            plt.ylabel('sum of squared differences')
+            plt.legend()
+
+            wandb.log({"intake_sum_agent{}_ep_{}".format(agent, ep): wandb.Image(plt)})
+
+            plt.close()  # 현재 그림 닫기
+
+            plt.figure(figsize=(10, 6))
+
+            plt.scatter(tiles_num_with_pred1, intake_inner_with_pred1, facecolors='none', edgecolors=colors[agent],
+                        label='about predator1')
+            plt.scatter(tiles_num_with_pred2, intake_inner_with_pred2, facecolors='none', edgecolors=colors[agent],
+                        label='about predator1')
+
+            plt.title("intake_inner_agent{}_ep_{}".format(agent, ep))
+            plt.xlabel('overlap tiles number')
+            plt.ylabel('inner product')
+            plt.legend()
+
+            wandb.log({"intake_inner_agent{}_ep_{}".format(agent, ep): wandb.Image(plt)})
+
+            plt.close()  # 현재 그림 닫기
+
         ################################
         ############case2###############
         ################################
 
 
-
-
         ##############################################################################
         ###############################phenomenon#####################################
         ##############################################################################
-
 
 
         ############################################################
