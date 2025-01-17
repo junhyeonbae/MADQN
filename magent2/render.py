@@ -2,6 +2,7 @@ import math
 
 import numpy as np
 
+
 animation_total = 2
 animation_stop = 0
 background_rgb = (255, 255, 255)
@@ -97,8 +98,6 @@ class Renderer:
             pygame.display.init()
             infoObject = pygame.display.Info()
             screen_size = (infoObject.current_w - 50, infoObject.current_h - 50)
-
-            screen_size = (200, 200)
             self.resolution = resolution = np.min(
                 [screen_size, base_resolution], axis=0
             )
@@ -140,11 +139,11 @@ class Renderer:
         if len(self.handles) == 2:
             vs = " vs ", (0, 0, 0)
             result = [(form_txt(0), vs, form_txt(1))]
-        elif len(self.handles) == 3:
+        elif len(self.handles) == 4:
             vs = " vs ", (0, 0, 0)
             comma = ", ", (0, 0, 0)
             result = [
-                (form_txt(0), comma, form_txt(1), vs, form_txt(2))
+                (form_txt(0), comma, form_txt(1), vs, form_txt(2), comma, form_txt(3))
             ]
         else:
             raise RuntimeError("bad number of handles")

@@ -1,20 +1,18 @@
 # noqa
 """
-# Gather
+## Gather
 
-```{figure} magent_gather.gif
+```{figure} gather.gif
 :width: 140px
 :name: gather
 ```
-
-This environment is part of the <a href='..'>MAgent2 environments</a>. Please read that page first for general information.
 
 | Import             | `from magent2.environments import gather_v4` |
 |--------------------|-------------------------------------------|
 | Actions            | Discrete                                  |
 | Parallel API       | Yes                                       |
 | Manual Control     | No                                        |
-| Agents             | `agents= [ omnivore_[0-494] ]`            |
+| Agents             | `agents= [omnivore_[0-494]]`            |
 | Agents             | 495                                       |
 | Action Shape       | (33)                                      |
 | Action Values      | Discrete(33)                              |
@@ -23,10 +21,6 @@ This environment is part of the <a href='..'>MAgent2 environments</a>. Please re
 | State Shape        | (200, 200, 5)                             |
 | State Values       | (0, 2)                                    |
 
-```{figure} ../../_static/img/aec/magent_gather_aec.svg
-:width: 200px
-:name: gather
-```
 
 In gather, the agents gain reward by eating food. Food needs to be broken down by 5 "attacks" before it is absorbed. Since there is finite food on the map, there is competitive pressure between agents over the food. You expect to see that agents coordinate by not attacking each other until food is
 scarce. When food is scarce, agents may attack each other to try to monopolize the food. Agents can kill each other with a single attack.
@@ -103,11 +97,7 @@ last_reward(extra_features=True)| 1
 
 ### Version History
 
-* v4: Underlying library fix (1.18.0)
-* v3: Fixed bugs and changed default parameters (1.7.0)
-* v2: Observation space bound fix, bumped version of all environments due to adoption of new agent iteration scheme where all agents are iterated over after they are done (1.4.0)
-* v1: Agent order under death changed (1.3.0)
-* v0: Initial versions release (1.0.0)
+* v0: Initial MAgent2 release (0.3.0)
 
 """
 
@@ -117,6 +107,7 @@ from pettingzoo.utils.conversions import parallel_to_aec_wrapper
 
 import magent2
 from magent2.environments.magent_env import magent_parallel_env, make_env
+
 
 map_size = 200
 max_cycles_default = 500
@@ -132,12 +123,19 @@ def parallel_env(
     minimap_mode=minimap_mode_default,
     extra_features=False,
     render_mode=None,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     env_reward_args = dict(**default_reward_args)
     env_reward_args.update(reward_args)
     return _parallel_env(
-        map_size, minimap_mode, env_reward_args, max_cycles, extra_features, render_mode
+        map_size,
+        minimap_mode,
+        env_reward_args,
+        max_cycles,
+        extra_features,
+        render_mode,
+        seed,
     )
 
 
@@ -145,24 +143,33 @@ def raw_env(
     max_cycles=max_cycles_default,
     minimap_mode=minimap_mode_default,
     extra_features=False,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     return parallel_to_aec_wrapper(
-        parallel_env(max_cycles, minimap_mode, extra_features, **reward_args)
+        parallel_env(max_cycles, minimap_mode, extra_features, seed=seed, **reward_args)
     )
 
 
 env = make_env(raw_env)
 
 
-def load_config(
-    size, minimap_mode, step_reward, attack_penalty, dead_penalty, attack_food_reward
+def get_config(
+    size,
+    minimap_mode,
+    seed,
+    step_reward,
+    attack_penalty,
+    dead_penalty,
+    attack_food_reward,
 ):
     gw = magent2.gridworld
     cfg = gw.Config()
 
     cfg.set({"map_width": size, "map_height": size})
     cfg.set({"minimap_mode": minimap_mode})
+    if seed is not None:
+        cfg.set({"seed": seed})
 
     options = {
         "width": 1,
@@ -218,11 +225,21 @@ class _parallel_env(magent_parallel_env, EzPickle):
         max_cycles,
         extra_features,
         render_mode=None,
+        seed=None,
     ):
         EzPickle.__init__(
-            self, map_size, minimap_mode, reward_args, max_cycles, extra_features
+            self,
+            map_size,
+            minimap_mode,
+            reward_args,
+            max_cycles,
+            extra_features,
+            render_mode,
+            seed,
         )
-        env = magent2.GridWorld(load_config(map_size, minimap_mode, **reward_args))
+        env = magent2.GridWorld(
+            get_config(map_size, minimap_mode, seed=seed, **reward_args)
+        )
         handles = env.get_handles()
         reward_vals = np.array([5] + list(reward_args.values()))
         reward_range = [

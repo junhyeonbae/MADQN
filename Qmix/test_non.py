@@ -32,7 +32,8 @@ for ep in range(1):
 	for agent_idx in range(n_predator1 + n_predator2+ n_prey):
 		truncation_dict[agent_idx] = []
 
-	env.reset()
+	result = env.reset(seed=args.seed, options={})
+	print(result)
 
 	iteration_number = 0
 

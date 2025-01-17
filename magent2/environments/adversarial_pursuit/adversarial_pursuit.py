@@ -1,13 +1,11 @@
 # noqa
 """
-# Adversarial Pursuit
+## Adversarial Pursuit
 
-```{figure} magent_adversarial_pursuit.gif
+```{figure} adversarial_pursuit.gif
 :width: 140px
 :name: adversarial_pursuit
 ```
-
-This environment is part of the <a href='..'>MAgent2 environments</a>. Please read that page first for general information.
 
 | Import             | `from magent2.environments import adversarial_pursuit_v4` |
 |--------------------|--------------------------------------------------------|
@@ -23,10 +21,6 @@ This environment is part of the <a href='..'>MAgent2 environments</a>. Please re
 | State Shape        | (45, 45, 5)                                            |
 | State Values       | (0, 2)                                                 |
 
-```{figure} ../../_static/img/aec/magent_adversarial_pursuit_aec.svg
-:width: 200px
-:name: adversarial_pursuit
-```
 
 The red agents must navigate the obstacles and tag (similar to attacking, but without damaging) the blue agents. The blue agents should try to avoid being tagged. To be effective, the red agents, who are much are slower and larger than the blue agents, must work together to trap blue agents so
 they can be tagged continually.
@@ -101,11 +95,7 @@ last_reward(extra_features=True)| 1
 
 ### Version History
 
-* v4: Underlying library fix (1.18.0)
-* v3: Fixed bugs and changed default parameters (1.7.0)
-* v2: Observation space bound fix, bumped version of all environments due to adoption of new agent iteration scheme where all agents are iterated over after they are done (1.4.0)
-* v1: Agent order under death changed (1.3.0)
-* v0: Initial versions release (1.0.0)
+* v0: Initial MAgent2 release (0.3.0)
 
 """
 
@@ -115,6 +105,7 @@ from pettingzoo.utils.conversions import parallel_to_aec_wrapper
 
 import magent2
 from magent2.environments.magent_env import magent_parallel_env, make_env
+
 
 default_map_size = 45
 max_cycles_default = 500
@@ -128,12 +119,19 @@ def parallel_env(
     minimap_mode=minimap_mode_default,
     extra_features=False,
     render_mode=None,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     env_reward_args = dict(**default_reward_args)
     env_reward_args.update(reward_args)
     return _parallel_env(
-        map_size, minimap_mode, env_reward_args, max_cycles, extra_features, render_mode
+        map_size,
+        minimap_mode,
+        env_reward_args,
+        max_cycles,
+        extra_features,
+        render_mode,
+        seed,
     )
 
 
@@ -142,23 +140,28 @@ def raw_env(
     max_cycles=max_cycles_default,
     minimap_mode=minimap_mode_default,
     extra_features=False,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     return parallel_to_aec_wrapper(
-        parallel_env(map_size, max_cycles, minimap_mode, extra_features, **reward_args)
+        parallel_env(
+            map_size, max_cycles, minimap_mode, extra_features, seed=seed, **reward_args
+        )
     )
 
 
 env = make_env(raw_env)
 
 
-def get_config(map_size, minimap_mode, tag_penalty):
+def get_config(map_size, minimap_mode, seed, tag_penalty):
     gw = magent2.gridworld
     cfg = gw.Config()
 
     cfg.set({"map_width": map_size, "map_height": map_size})
     cfg.set({"minimap_mode": minimap_mode})
     cfg.set({"embedding_size": 10})
+    if seed is not None:
+        cfg.set({"seed": seed})
 
     options = {
         "width": 2,
@@ -207,6 +210,7 @@ class _parallel_env(magent_parallel_env, EzPickle):
         max_cycles,
         extra_features,
         render_mode=None,
+        seed=None,
     ):
         EzPickle.__init__(
             self,
@@ -216,10 +220,11 @@ class _parallel_env(magent_parallel_env, EzPickle):
             max_cycles,
             extra_features,
             render_mode,
+            seed,
         )
         assert map_size >= 7, "size of map must be at least 7"
         env = magent2.GridWorld(
-            get_config(map_size, minimap_mode, **reward_args), map_size=map_size
+            get_config(map_size, minimap_mode, seed, **reward_args), map_size=map_size
         )
 
         handles = env.get_handles()

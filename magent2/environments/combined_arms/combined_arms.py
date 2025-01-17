@@ -1,13 +1,11 @@
 # noqa
 """
-# Combined Arms
+## Combined Arms
 
-```{figure} magent_combined_arms.gif
+```{figure} combined_arms.gif
 :width: 140px
 :name: combined_arms
 ```
-
-This environment is part of the <a href='..'>MAgent2 environments</a>. Please read that page first for general information.
 
 | Import             | `from magent2.environments import combined_arms_v6`                                   |
 |--------------------|------------------------------------------------------------------------------------|
@@ -23,10 +21,6 @@ This environment is part of the <a href='..'>MAgent2 environments</a>. Please re
 | State Shape        | (45, 45, 9)                                                                        |
 | State Values       | (0, 2)                                                                             |
 
-```{figure} ../../_static/img/aec/magent_combined_arms_aec.svg
-:width: 200px
-:name: combined_arms
-```
 
 A large-scale team battle. Here there are two types of agents on each team, ranged units which can attack farther and move faster but have less HP, and melee units which can only attack close units and move more slowly but have more HP. Unlike battle and battlefield, agents can attack units on
 their own team (they just are not rewarded for doing so). Agents slowly regain HP over time, so it is best to kill an opposing agent quickly. Specifically, agents have 10 HP, are damaged 2 HP by each attack, and recover 0.1 HP every turn.
@@ -115,13 +109,7 @@ last_reward(extra_features=True)| 1
 
 ### Version History
 
-* v6: Underlying library fix (1.18.0)
-* v5: Fixed observation space order (1.9.0)
-* v4: Fixed bugs and changed default parameters (1.7.0)
-* v3: Added new arguments, fixes to observation space, changes to rewards (1.4.2)
-* v2: Observation space bound fix, bumped version of all environments due to adoption of new agent iteration scheme where all agents are iterated over after they are done (1.4.0)
-* v1: Agent order under death changed (1.3.0)
-* v0: Initial versions release (1.0.0)
+* v0: Initial MAgent2 release (0.3.0)
 
 """
 
@@ -133,6 +121,7 @@ from pettingzoo.utils.conversions import parallel_to_aec_wrapper
 
 import magent2
 from magent2.environments.magent_env import magent_parallel_env, make_env
+
 
 default_map_size = 45
 max_cycles_default = 1000
@@ -152,12 +141,19 @@ def parallel_env(
     minimap_mode=minimap_mode_default,
     extra_features=False,
     render_mode=None,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     env_reward_args = dict(**default_reward_args)
     env_reward_args.update(reward_args)
     return _parallel_env(
-        map_size, minimap_mode, env_reward_args, max_cycles, extra_features, render_mode
+        map_size,
+        minimap_mode,
+        env_reward_args,
+        max_cycles,
+        extra_features,
+        render_mode,
+        seed,
     )
 
 
@@ -167,7 +163,8 @@ def raw_env(
     minimap_mode=minimap_mode_default,
     extra_features=False,
     render_mode=None,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     return parallel_to_aec_wrapper(
         parallel_env(
@@ -176,7 +173,8 @@ def raw_env(
             minimap_mode,
             extra_features,
             render_mode=render_mode,
-            **reward_args
+            seed=seed,
+            **reward_args,
         )
     )
 
@@ -184,9 +182,10 @@ def raw_env(
 env = make_env(raw_env)
 
 
-def load_config(
+def get_config(
     map_size,
     minimap_mode,
+    seed,
     step_reward,
     dead_penalty,
     attack_penalty,
@@ -199,6 +198,8 @@ def load_config(
     cfg.set({"minimap_mode": minimap_mode})
 
     cfg.set({"embedding_size": 10})
+    if seed is not None:
+        cfg.set({"seed": seed})
 
     options = {
         "width": 1,
@@ -377,12 +378,20 @@ class _parallel_env(magent_parallel_env, EzPickle):
         max_cycles,
         extra_features,
         render_mode=None,
+        seed=None,
     ):
         EzPickle.__init__(
-            self, map_size, minimap_mode, reward_args, max_cycles, extra_features
+            self,
+            map_size,
+            minimap_mode,
+            reward_args,
+            max_cycles,
+            extra_features,
+            render_mode,
+            seed,
         )
         assert map_size >= 16, "size of map must be at least 16"
-        env = magent2.GridWorld(load_config(map_size, minimap_mode, **reward_args))
+        env = magent2.GridWorld(get_config(map_size, minimap_mode, seed, **reward_args))
         reward_vals = np.array([KILL_REWARD] + list(reward_args.values()))
         reward_range = [
             np.minimum(reward_vals, 0).sum(),

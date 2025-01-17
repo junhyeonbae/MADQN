@@ -1,13 +1,11 @@
 # noqa
 """
-# Battlefield
+## Battlefield
 
-```{figure} magent_battlefield.gif
+```{figure} battlefield.gif
 :width: 140px
 :name: battlefield
 ```
-
-This environment is part of the <a href='..'>MAgent2 environments</a>. Please read that page first for general information.
 
 | Import             | `from magent2.environments import battlefield_v4` |
 |--------------------|------------------------------------------------|
@@ -23,10 +21,6 @@ This environment is part of the <a href='..'>MAgent2 environments</a>. Please re
 | State Shape        | (80, 80, 5)                                    |
 | State Values       | (0, 2)                                         |
 
-```{figure} ../../_static/img/aec/magent_battlefield_aec.svg
-:width: 200px
-:name: battlefield
-```
 
 Same as [battle](./battle) but with fewer agents arrayed in a larger space with obstacles.
 
@@ -114,11 +108,7 @@ last_reward(extra_features=True)| 1
 
 ### Version History
 
-* v4: Underlying library fix (1.18.0)
-* v3: Fixed bugs and changed default parameters (1.7.0)
-* v2: Observation space bound fix, bumped version of all environments due to adoption of new agent iteration scheme where all agents are iterated over after they are done (1.4.0)
-* v1: Agent order under death changed (1.3.0)
-* v0: Initial versions release (1.0.0)
+* v0: Initial MAgent2 release (0.3.0)
 
 """
 
@@ -131,6 +121,7 @@ from pettingzoo.utils.conversions import parallel_to_aec_wrapper
 import magent2
 from magent2.environments.battle.battle import KILL_REWARD, get_config
 from magent2.environments.magent_env import magent_parallel_env, make_env
+
 
 default_map_size = 80
 max_cycles_default = 1000
@@ -149,12 +140,19 @@ def parallel_env(
     minimap_mode=minimap_mode_default,
     extra_features=False,
     render_mode=None,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     env_reward_args = dict(**default_reward_args)
     env_reward_args.update(reward_args)
     return _parallel_env(
-        map_size, minimap_mode, env_reward_args, max_cycles, extra_features, render_mode
+        map_size,
+        minimap_mode,
+        env_reward_args,
+        max_cycles,
+        extra_features,
+        render_mode,
+        seed,
     )
 
 
@@ -163,10 +161,13 @@ def raw_env(
     max_cycles=max_cycles_default,
     minimap_mode=minimap_mode_default,
     extra_features=False,
-    **reward_args
+    seed=None,
+    **reward_args,
 ):
     return parallel_to_aec_wrapper(
-        parallel_env(map_size, max_cycles, minimap_mode, extra_features, **reward_args)
+        parallel_env(
+            map_size, max_cycles, minimap_mode, extra_features, seed=seed, **reward_args
+        )
     )
 
 
@@ -188,6 +189,7 @@ class _parallel_env(magent_parallel_env, EzPickle):
         max_cycles,
         extra_features,
         render_mode=None,
+        seed=None,
     ):
         EzPickle.__init__(
             self,
@@ -197,10 +199,11 @@ class _parallel_env(magent_parallel_env, EzPickle):
             max_cycles,
             extra_features,
             render_mode,
+            seed,
         )
         assert map_size >= 46, "size of map must be at least 46"
         env = magent2.GridWorld(
-            get_config(map_size, minimap_mode, **reward_args), map_size=map_size
+            get_config(map_size, minimap_mode, seed, **reward_args), map_size=map_size
         )
         self.leftID = 0
         self.rightID = 1
